@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.job.bean.Agreement;
 import com.job.dao.AgreementDao;
+import com.job.dao.CityDao;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:configs/spring-mybatis.xml"})
 public class Test {
