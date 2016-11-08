@@ -43,7 +43,7 @@
 	<context:annotation-config/>
 
 	<!-- 自动扫描 注解-->
-    <context:component-scan base-package="com.xf.controller">
+    <context:component-scan base-package="com.dao.controller">
     	
     </context:component-scan>
 
