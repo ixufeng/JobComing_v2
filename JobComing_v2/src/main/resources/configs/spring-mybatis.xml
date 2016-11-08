@@ -71,13 +71,14 @@
         <!-- 获取连接最大等待时间 -->  
         <property name="maxWait" value="${maxWait}"></property>  
     </bean> 
-     
+   
      <!-- 管理session工厂，通过对mybatis.sqlSessionFactory分装来是实现 -->
      
      <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
         <property name="dataSource" ref="dataSource" />  
         <!-- 自动扫描mapping.xml文件 -->  
         <property name="mapperLocations" value="classpath:com/job/mapping/*.xml"></property>  
+        <property name="configLocation" value="classpath:configs/mybatis.xml"></property>
     </bean> 
   
    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->  
@@ -87,9 +88,9 @@
     </bean> 
   
       <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->  
-    <bean id="transactionManager"  
-        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+    <bean id="transactionManager"  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
         <property name="dataSource" ref="dataSource" />  
+       
     </bean>   
      
      
