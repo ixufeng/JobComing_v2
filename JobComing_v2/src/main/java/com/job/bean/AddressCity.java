@@ -1,5 +1,7 @@
 package com.job.bean;
 
+
+
 public class AddressCity {
 	private int cityId;
 	private int cityCode;
@@ -8,6 +10,7 @@ public class AddressCity {
 	public int getCityId() {
 		return cityId;
 	}
+	
 	public void setCityId(int cityId) {
 		this.cityId = cityId;
 	}

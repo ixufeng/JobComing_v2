@@ -14,8 +14,6 @@ public class Agreement {
 	private int userId;
 	private int status;
 	private Date completeTime;
-	
-	
 	public int getAgreementId() {
 		return agreementId;
 	}
@@ -44,6 +42,14 @@ public class Agreement {
 		return completeTime;
 	}
 	public void setCompleteTime(Date completeTime) {
+		this.completeTime = completeTime;
+	}
+	public Agreement(int agreementId, int jobId, int userId, int status, Date completeTime) {
+		super();
+		this.agreementId = agreementId;
+		this.jobId = jobId;
+		this.userId = userId;
+		this.status = status;
 		this.completeTime = completeTime;
 	}
 	
