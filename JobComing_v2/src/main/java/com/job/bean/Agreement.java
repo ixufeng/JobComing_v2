@@ -44,14 +44,5 @@ public class Agreement {
 	public void setCompleteTime(Date completeTime) {
 		this.completeTime = completeTime;
 	}
-	public Agreement(int agreementId, int jobId, int userId, int status, Date completeTime) {
-		super();
-		this.agreementId = agreementId;
-		this.jobId = jobId;
-		this.userId = userId;
-		this.status = status;
-		this.completeTime = completeTime;
-	}
-	
 	
 }

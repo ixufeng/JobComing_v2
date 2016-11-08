@@ -6,8 +6,8 @@ public class Chat {
 
 	private int chatId;
 	private int  userSendId;
-	private int userRecievedId;
-	private String charContent;
+	private int userRecieveId;
+	private String chatContent;
 	private Date chatTime;
 	private int status;
 	public int getChatId() {
@@ -22,17 +22,17 @@ public class Chat {
 	public void setUserSendId(int userSendId) {
 		this.userSendId = userSendId;
 	}
-	public int getUserRecievedId() {
-		return userRecievedId;
+	public int getUserRecieveId() {
+		return userRecieveId;
 	}
-	public void setUserRecievedId(int userRecievedId) {
-		this.userRecievedId = userRecievedId;
+	public void setUserRecieveId(int userRecieveId) {
+		this.userRecieveId = userRecieveId;
 	}
-	public String getCharContent() {
-		return charContent;
+	public String getChatContent() {
+		return chatContent;
 	}
-	public void setCharContent(String charContent) {
-		this.charContent = charContent;
+	public void setCharContent(String chatContent) {
+		this.chatContent = chatContent;
 	}
 	public Date getChatTime() {
 		return chatTime;

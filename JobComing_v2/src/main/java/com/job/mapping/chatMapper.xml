@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 4.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.job.dao.ChatDao">
+	<resultMap type="com.job.bean.Chat" id="chat">
+		<id property="chatId" column="chat_id"/>
+		<result property="userSendId" column="user_sendId"/>
+		<result property="userRecieveId" column="user_recievedId"/>
+		<result property="chatContent" column="chat_content"/>
+		<result property="chatTime" column="chat_time"/>
+		<result property="status" column="status"/>
+	</resultMap>
+  	<!-- 根据聊天记录对象插入表 -->
+  	<insert id="insert" parameterType="com.job.bean.Chat">
+  		insert chat (user_sendId,user_recieveId,chat_content,chat_time,status) 
+  			values(#{userSendId},#{userRecieveId},#{chatContent},#{chatTime},#{status})
+  	</insert>
+  	
+  	<!--根据用户id返回聊天记录 -->
+  	<select id="getChatListByUserId" parameterType="int" resultMap="chat">
+  		select * from chat where user_recieveId=#{userId}
+  	</select>
+  	
+  	<!-- 通过聊天编号修改状态 -->
+  	<update id="update">
+  		update chat set status=#{status} where chat_id=#{chatId}
+  	</update>
+  	
+  	<!-- 通过聊天编号删除聊天记录 -->
+  	<delete id="delete">
+  		delete from chat where chat_id in
+  		<foreach collection="list" item="chatId" open="(" close=")" separator=",">
+  			#{chatId} 
+  		</foreach>
+  	</delete>
+</mapper>

@@ -46,7 +46,4 @@ public class Evaluate {
 	public void setEvaluateTime(Date evaluateTime) {
 		this.evaluateTime = evaluateTime;
 	}
-	
-	
-	
 }
