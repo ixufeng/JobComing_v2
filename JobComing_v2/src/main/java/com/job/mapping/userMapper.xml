@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 4.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper>
+
+	<!-- 查询简单的user对象 -->
+	<select id="getUserByUserId" resultType="com.job.bean.User" parameterType="int">
+		select * from user where userId = #{userId}
+	</select>
+	
+	<!-- 查询简单的user对象 -->
+	<select id="getUserByUserName" resultType="com.job.bean.User" parameterType="String">
+		select * from user where userId = #{userName}
+	</select>
+	
+	<!-- 更新用户头像 -->
+	
+	
+
+
+</mapper>
