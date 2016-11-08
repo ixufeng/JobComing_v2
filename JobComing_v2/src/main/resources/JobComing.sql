@@ -10,9 +10,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(255) DEFAULT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   `score` int(11) DEFAULT NULL,
-  `identifycode` varchar(255) DEFAULT NULL,
+  `identify_code` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`USERID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --¹Ø×¢±í
 CREATE TABLE IF NOT EXISTS `relationship`(
@@ -39,6 +40,16 @@ CREATE TABLE IF NOT EXISTS `job` (
   `is_validate` int(11) DEFAULT NULL,
   PRIMARY KEY (`job_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- jobkind ±í 
+
+CREATE TABLE IF NOT EXISTS `jobkind` (
+  `jobkind_id` int(11) NOT NULL,
+  `jobkind_name` varchar(255) DEFAULT NULL,
+  `jobkind_introduce` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`jobkind_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 
