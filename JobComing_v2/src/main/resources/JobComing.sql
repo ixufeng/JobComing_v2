@@ -1,6 +1,6 @@
 --用户表
 CREATE TABLE IF NOT EXISTS `user` (
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(255) DEFAULT NULL,
   `true_name` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
@@ -11,24 +11,26 @@ CREATE TABLE IF NOT EXISTS `user` (
   `avatar` varchar(255) DEFAULT NULL,
   `score` int(11) DEFAULT NULL,
   `identify_code` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`USERID`)
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 --关注表
 CREATE TABLE IF NOT EXISTS `relationship`(
 
-	relationship_id int not null,
-	user_id_a not null,
-	user_id_b not null
-)
+	relationship_id int not null AUTO_INCREMENT,
+	user_id_a int not null,
+	user_id_b int  not null,
+	 PRIMARY KEY (`relationship_id`)
+	
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 表的结构 `jobpublish` 工作发布表
 --
 
 CREATE TABLE IF NOT EXISTS `job` (
-  `job_id` int(11) NOT NULL,
+  `job_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `jobkind_id` int(11) DEFAULT NULL,
   `job_time` datetime DEFAULT NULL,
@@ -44,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `job` (
 -- jobkind 表 
 
 CREATE TABLE IF NOT EXISTS `jobkind` (
-  `jobkind_id` int(11) NOT NULL,
+  `jobkind_id` int(11) NOT NULL AUTO_INCREMENT,
   `jobkind_name` varchar(255) DEFAULT NULL,
   `jobkind_introduce` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`jobkind_id`)

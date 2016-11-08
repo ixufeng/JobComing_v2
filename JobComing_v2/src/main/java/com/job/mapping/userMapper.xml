@@ -1,21 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 4.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper>
+<mapper namespace="com.job.dao.UserDao">
+
+	<resultMap type="com.job.bean.User" id="User">
+		<id column="user_id" property="userId"/>
+		<result column="user_name" property="userName"/>
+		<result column="password" property="password"/>
+		<result column="true_name" property="trueName"/>
+		<result column="birthday" property="birthday"/>
+		<result column="avatar" property="avatar"/>
+		<result column="sex" property="sex"/>
+		<result column="phone" property="sex"/>
+		<result column="email" property="email"/>
+		<result column="score" property="score"/>
+		<result column="identify_code" property="identifyCode"/>
+	</resultMap>
 
 	<!-- 查询简单的user对象 -->
-	<select id="getUserByUserId" resultType="com.job.bean.User" parameterType="int">
-		select * from user where userId = #{userId}
+	<select id="getUserByUserId" resultMap="User" parameterType="int">
+		select * from user where user_id = #{userId}
 	</select>
 	
 	<!-- 查询简单的user对象 -->
-	<select id="getUserByUserName" resultType="com.job.bean.User" parameterType="String">
-		select * from user where userId = #{userName}
+	<select id="getUserByUserName" resultMap="User">
+		select * from user where user_id = #{userName}
 	</select>
 	
 	<!-- 更新用户头像 -->
+	<update id="updateUserAvatar">
+		update user set avatar=#{userAvatar} where user_id=#{userId}
+	</update>
+	
+	<!-- 更新用户的积分 -->
+	<update id="updateUserScore">
+		update user set score=#{score} where user_id=#{userId}
+	</update>
+	
+	<!-- 修改多项参数时使用 -->
+	<update id="updateUser" parameterType="com.job.bean.User">
+		update user set true_name=#{trueName},birthday=#{birthday},sex=#{sex},phone=#{phone},email=#{email}
+	</update>
+
+	<!-- 添加一个用户 -->
+	<insert id="addUser" parameterType="com.job.bean.User">
+		insert into user(user_name,true_name,password,birthday,sex,phone,email,score,identify_code) 
+		values(#{userName},#{trueName},#{password},#{birthday},
+		#{sex},#{phone},#{email},#{score},#{identifyCode});
+	</insert>
+	
+	<!-- 查找自己关注的人 -->
+	
+	<select id="getAttentionUser" resultMap="User">
+		select * from user where user_id in (select user_id_b from relationship where user_id_a = #{userId});
+	</select>
+	
+	<!-- 查找关注自己的人 -->
+	<select id="getFancyUser" resultMap="User">
+		select * from user where user_id in (select user_id_a from relationship where user_id_b = #{userId})
+	</select>
 	
 	
-
-
 </mapper>

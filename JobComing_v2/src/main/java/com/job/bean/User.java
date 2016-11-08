@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class User {
 
-	private String userId;
+	private int userId;
 	private String userName;
 	private String trueName;
 	private String password;
@@ -15,10 +15,10 @@ public class User {
 	private String avatar;
 	private int score = 100;
 	private String identifyCode;
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	public String getUserName() {
