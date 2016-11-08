@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 4.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.job.dao.ProvinceDao">
+	<resultMap type="com.job.bean.AddressProvince" id="province">
+		<id property="provinceId" column="province_id"/>
+		<result property="provinceCode" column="province_code"/>
+		<result property="provinceName" column="province_name"/>
+	</resultMap>
+	
+	<!--  通过省份名称返回一个省份对象 -->
+	<select id="getProvinceByName" parameterType="java.lang.String" resultMap="province">
+		select * from addressProvince where province_name=#{name}
+	</select>
+	
+	<!-- 通过省份编号返回一个省份对象 -->
+	<select id="getProvinceByCode" parameterType="int" resultMap="province">
+		select * from addressProvince where province_code=#{code}
+	</select>
+</mapper>

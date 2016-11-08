@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 4.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.job.dao.CityDao">
+	<resultMap type="com.job.bean.AddressCity" id="city">
+		<id property="cityId" column="city_id"/>
+		<result property="cityCode" column="city_code"/>
+		<result property="provinceCode" column="province_code"/>
+		<result property="cityName" column="city_name"/>
+	</resultMap>
+	
+	<!--  通过城市名称返回一个城市对象 -->
+	<select id="getCityByName" resultMap="city">
+		select * from addressCity where city_name=#{cityName}
+	</select>
+	
+	<!-- 通过城市编号返回一个城市对象 -->
+	<select id="getCityByCode" parameterType="int" resultMap="city">
+		select * from addressCity where city_code=#{cityCode}
+	</select>
+	
+	<!-- 通过省份编号返回所属的城市的集合 -->
+
+	<select id="getCityListByProvince" parameterType="int" resultMap="city" >
+		select * from addressCity where province_code=#{provinceCode}
+	</select>
+</mapper>
