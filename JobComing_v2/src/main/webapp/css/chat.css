@@ -1,0 +1,235 @@
+*{
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+}
+body{
+	padding: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: "Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica;
+    background-color: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.header {
+    height: 46px;
+    line-height: 46px;
+    color: #fff;
+    text-align: center;
+    background: #00b38a;
+    background-size: 60px 22px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    position: relative;
+}
+
+.header .btns {
+    padding: 15px 0;
+    height: 16px;
+    display: block;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+    position: absolute;
+}
+
+.header .btns .icon-base {
+    margin: 0 16px 0 0;
+    width: 16px;
+    height: 16px;
+    background-size: 16px 16px;
+    vertical-align: top;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.close {
+    background-image: url(../img/close_aa55638.png);
+}
+
+.content {
+    margin: 0 0 2px;
+    border-top-width: 0;
+    border: 1px solid #e8e8e8;
+}
+.chat .scroll-wrapper {
+    width: 100%;
+    height: 298px;
+}
+.mCustomScrollBox {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    max-width: 100%;
+    outline: 0;
+    direction: ltr;
+}
+.mCSB_inside>.mCSB_container {
+    margin-right: 20px;
+}
+.mCSB_container {
+    overflow: hidden;
+    width: auto;
+    height: auto;
+}
+.chat .chat-list {
+    padding: 0 10px 0 20px;
+    overflow-y: visible;
+    list-style: none;
+}
+.chat .chat-list .system {
+    line-height: 1.5;
+    color: #d2d2d2;
+    font-size: 12px;
+    text-align: center;
+}
+.chat .chat-list .left {
+    text-align: left;
+}
+.chat .chat-list .chat-item {
+    margin: 10px 0;
+    width: 100%;
+    line-height: 1.5;
+}
+.chat .title {
+    margin: 6px 0;
+    color: #666;
+    font-size: 12px;
+}
+.chat .chat-list .lg {
+    color: #333;
+    background-color: #f4f4f4;
+}
+.chat .chat-list p {
+    padding: 8px 10px;
+    max-width: 240px;
+    border-radius: 6px;
+    display: inline-block;
+    position: relative;
+}
+.mCSB_scrollTools{
+	opacity: .75;
+	position: absolute;
+    width: 10px;
+    height: auto;
+    left: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    direction: ltr;
+}
+.mCSB_scrollTools .mCSB_draggerContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: auto;
+}
+.mCSB_scrollTools .mCSB_dragger {
+    cursor: pointer;
+    width: 100%;
+    z-index: 1;
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	transition: opacity .2s ease-in-out,background-color .2s ease-in-out;
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: rgba(0,0,0,.4);
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    position: relative;
+    width: 4px;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 16px;
+    text-align: center;
+}
+.mCSB_scrollTools .mCSB_draggerRail {
+    background-color: rgba(255,255,255,.75);
+}
+.mCSB_scrollTools .mCSB_draggerRail {
+    width: 2px;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 16px;
+}
+.chat .toolbox {
+    margin: 40px 0 0;
+    border-top: 1px solid #e8e8e8;
+    position: relative;
+}
+.chat .toolbox .emoji {
+    background: url(../img/face-icon.png) center center no-repeat #999;
+    background-size: 22px 20px;
+}
+.chat .toolbox .icon-base {
+    margin: 9px 0 9px 9px;
+    width: 22px;
+    height: 20px;
+    background-color: #999;
+    vertical-align: top;
+    cursor: pointer;
+    display: inline-block;
+}
+.chat .toolbox .text {
+    margin: 9px 20px 0 0;
+    color: #666;
+    line-height: 20px;
+    cursor: pointer;
+    float: right;
+}
+.chat .toolbox ul {
+    width: 100%;
+    background-color: #fff;
+    z-index: 1;
+    display: none;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+.chat .toolbox ul li {
+    margin: 4px 1px;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+}
+.emoji-face {
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    cursor: pointer;
+    background-image: url(../img/emoji.png);
+}
+.chat .chat-text {
+    margin: 0;
+    padding: 10px 8px;
+    width: 100%;
+    height: 64px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.chat .submit {
+    padding: 0 0 10px;
+    height: 38px;
+    line-height: 38px;
+    color: #999;
+    font-size: 14px;
+    text-align: right;
+    overflow: hidden;
+}
+.chat .submit .submit-msg {
+    margin: 0 4px 0 12px;
+    padding: 0 24px;
+    height: 100%;
+    color: #fff;
+    background-color: #00b38a;
+    border-radius: 2px;
+    display: inline-block;
+    cursor: pointer;
+}
