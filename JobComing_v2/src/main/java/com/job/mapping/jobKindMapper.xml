@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 4.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.job.dao.JobKindDao">
+	<resultMap type="com.job.bean.JobKind" id="jobkind">
+		<id property="jobKindId" column="jobkind_id"/>
+		<result property="jobKindName" column="jobkind_name"/>
+		<result property="jobKindIntroduce" column="jobkind_introduce"/>
+	</resultMap>
+	
+	<!-- 返回所有工作种类集合 -->
+	<select id="getAllJobKind" resultMap="jobkind">
+		select * from jobkind
+	</select>
+</mapper>

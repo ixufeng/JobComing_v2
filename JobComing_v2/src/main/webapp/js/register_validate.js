@@ -2,7 +2,7 @@
 	var sel_year = $("#sel_year")[0].options;
 	var sel_month = $("#sel_month")[0].options;
 	for(var i = 1970;i <= 2016; i++){
-		sel_year.add(new Option(i+"年",i+"年"));
+		sel_year.add(new Option(i+"年",i));
 	}
 	
 	$("#sel_year").change(function(){
@@ -18,6 +18,7 @@
 $("#register_username").blur(function(){
 	//用户名规则--数字，字母，下划线，中文 6-12位
 	var username_reg = /^[a-z\d_\u4e00-\u9fa5]{6,12}$/;
+	var username_reg = /^[A-Za-z\d_\u4e00-\u9fa5]{6,12}$/;
 	var value = $(this).val();
 	if(value==""){
 		$(this).prev().html("用户名不能为空");
@@ -39,6 +40,18 @@ $("#register_username").blur(function(){
 				
 			},
 			dataType:"",
+			url:"AjaxServlet?curr="+"register_username",
+			data:{username:value},
+			success:function(data){
+				$("#register_username").prev().text(data);
+				if(data!=""){
+					$("#register_username").addClass("input-error");
+				}
+			},
+			error:function(){
+				alert("出现了一点错误")
+			},
+			dataType:"text",
 		});
 	}
 });
@@ -95,6 +108,21 @@ $("#register_email").blur(function(){
 	else{
 		$(this).prev().html("");
 		$(this).removeClass("input-error");
+		$.ajax({
+			type:"post",
+			url:"AjaxServlet?curr="+"register_email",
+			data:{email:value},
+			success:function(data){
+				$("#register_email").prev().text(data);
+				if(data!=""){
+					$("#register_email").addClass("input-error");
+				}
+			},
+			error:function(){
+				alert("出现了一点错误")
+			},
+			dataType:"text",
+		});
 	}
 });
 
@@ -113,6 +141,21 @@ $("#register_phone").blur(function(){
 	else{
 		$(this).prev().html("");
 		$(this).removeClass("input-error");
+		$.ajax({
+			type:"post",
+			url:"AjaxServlet?curr="+"register_phone",
+			data:{phone:value},
+			success:function(data){
+				$("#register_phone").prev().text(data);
+				if(data!=""){
+					$("#register_phone").addClass("input-error");
+				}
+			},
+			error:function(){
+				alert("出现了一点错误")
+			},
+			dataType:"text",
+		});
 	}
 });
  

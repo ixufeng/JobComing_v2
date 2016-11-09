@@ -1,0 +1,15 @@
+﻿
+body,p,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,hr{margin:0;padding:0;}
+a{text-decoration:none;color:black;}
+a img,:link img,:visited img{border:0;}
+ul,ol{list-style:none;}
+img{vertical-align:bottom;}
+.test{
+	width:800px;
+	border:1px solid red;
+	margin:0 auto;
+	padding:20px;
+}
+
+.clear{zoom:1;}
+.clear:after{content:"";display:block;clear:both;}
