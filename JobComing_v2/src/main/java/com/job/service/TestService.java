@@ -20,7 +20,6 @@ public class TestService {
 	public void hello(){
 		
 	/*Map<String,Object> map  = new HashMap<String,Object>();
-	
 	map.put("jobKindName", "清洁");
 	map.put("userName","admin");
 	map.put("cityName", "上海");*/

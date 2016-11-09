@@ -52,7 +52,7 @@
 		select * from job,user,jobkind,addresscity where job.user_id = user.user_id 
 			and job.addr_number=addresscity.city_code 
 			and job.jobkind_id=jobkind.jobkind_id
-		
+			
 			<if test="userName!=null">
 				and job.user_id in (select user.user_id from user where user_name like #{userName})
 			</if>
@@ -60,9 +60,18 @@
 				and job.jobkind_id in (select jobkind_id from jobkind where jobkind_name like #{jobKindName})
 			</if>
 			<if test="cityName!=null">
-				and addr_number in (select city_id from addresscity where city_name like #{cityName})
+				and addr_number in (select city_code from addresscity where city_name like #{cityName})
 			</if>
-					
+			<if test="jobTime!=null">
+				and job_time >=#{jobTime}
+			</if>
+			<if test="beginIndex!=null and lastIndex!=null">
+				limit #{beginIndex},#{lastIndex}
+			</if>
+			<if test="beginIndex==null and lastIndex==null">
+				limit #{pageSize}
+			</if>	
+			
 	</select>
 	<!-- 新增兼职 -->
 	<insert id="addJob" parameterType="com.job.bean.Job">

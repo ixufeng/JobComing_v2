@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---��ע��
+
 CREATE TABLE IF NOT EXISTS `relationship`(
 
 	relationship_id int not null AUTO_INCREMENT,
