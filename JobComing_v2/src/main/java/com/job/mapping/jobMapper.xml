@@ -3,5 +3,74 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.job.dao.JobDao">
-	<resultMap type="com.job.bean.Job" id=""></resultMap>
+	<resultMap type="com.job.bean.Job" id="Job">
+		<id column="job_id" property="jobId"/>
+		<result column="user_id" property="userId"/>
+		<result column="jobkind_id" property="jobKindId"/>
+		<result column="job_time" property="jobTime"/>
+		<result column="addr_number" property="addrNumber"/>
+		<result column="detail_addr" property="detailAddr"/>
+		<result column="begin_time" property="beginTime"/>
+		<result column="end_time" property="endTime"/>
+		<result column="job_scribe" property="jobScribe"/>
+		<result column="is_validate" property="isValidate"/>
+		<result column="kind_name" property="kindName"/>
+		<result column="city_name" property="cityName"/>
+		<collection property="sendUser" javaType="com.job.bean.User">
+			<id column="user_id" property="userId"/>
+			<result column="user_name" property="userName"/>
+			<result column="password" property="password"/>
+			<result column="true_name" property="trueName"/>
+			<result column="birthday" property="birthday"/>
+			<result column="avatar" property="avatar"/>
+			<result column="sex" property="sex"/>
+			<result column="phone" property="sex"/>
+			<result column="email" property="email"/>
+			<result column="score" property="score"/>
+			<result column="identify_code" property="identifyCode"/>
+		</collection>
+	</resultMap>
+	<!-- 通过jobid来查询工作 -->
+	<select id="getJobByJobId" resultMap="Job">
+		select * from job,user,addresscity,jobkind where job_id = #{jobId} 
+			and job.user_id=user.user_id 
+			and job.addr_number=addresscity.city_code
+			and job.jobkind_id=jobkind.jobkind_id;
+	</select>
+
+	
+	<!-- 通过用户的id来查找兼职 -->
+	<select id="getJobsByUserId" resultMap="Job">
+		select * from job,user,addresscity,jobkind where job.user_id = #{userId}
+			and job.user_id=user.user_id 
+			and job.addr_number=addresscity.city_code
+			and job.jobkind_id=jobkind.jobkind_id;
+	</select>
+	
+	<!-- 综合查找兼职  工作地点 , 发布人姓名 ，工作种类 -->
+	<select id="searchJobs" parameterType="java.util.Map" resultMap="Job">
+		select * from job,user,jobkind,addresscity where job.user_id = user.user_id 
+			and job.addr_number=addresscity.city_code 
+			and job.jobkind_id=jobkind.jobkind_id
+		
+			<if test="userName!=null">
+				and job.user_id in (select user.user_id from user where user_name like #{userName})
+			</if>
+			<if test="jobKindName!=null">
+				and job.jobkind_id in (select jobkind_id from jobkind where jobkind_name like #{jobKindName})
+			</if>
+			<if test="cityName!=null">
+				and addr_number in (select city_id from addresscity where city_name like #{cityName})
+			</if>
+					
+	</select>
+	<!-- 新增兼职 -->
+	<insert id="addJob" parameterType="com.job.bean.Job">
+		insert into job (user_id,jobKind_id,job_time,addr_number,detail_addr,begin_time,end_time,job_scribe,is_validate)
+		values(#{userId},#{jobKindId},#{jobTime},#{addrNumber},#{detailAddr},#{beginTime},#{endTime},#{jobScribe},#{isValidate});
+	</insert>
+	<delete id="delJob">
+		delete from job where job_id = #{jobId}
+	</delete>
+	
 </mapper>

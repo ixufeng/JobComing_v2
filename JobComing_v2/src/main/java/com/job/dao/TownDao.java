@@ -4,8 +4,9 @@ import java.util.List;
 import com.job.bean.AddressTown;
 
 public interface TownDao {
+
 	/**
-	 * 通过区县的名字返回区县对象
+	 * 通过区县的名字返回区县对象 
 	 * @param name
 	 * @return
 	 */

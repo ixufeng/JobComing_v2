@@ -15,6 +15,29 @@ public class Job {
 	private Date endTime;
 	private String jobScribe;
 	private int isValidate;
+	
+	private User sendUser;  //发布兼职的人
+	private String cityName; //发布的城市
+	private String kindName; //发布兼职的种类名称
+	
+	public String getKindName() {
+		return kindName;
+	}
+	public void setKindName(String kindName) {
+		this.kindName = kindName;
+	}
+	public String getCityName() {
+		return cityName;
+	}
+	public void setCityName(String cityName) {
+		this.cityName = cityName;
+	}
+	public User getSendUser() {
+		return sendUser;
+	}
+	public void setSendUser(User sendUser) {
+		this.sendUser = sendUser;
+	}
 	public int getJobId() {
 		return jobId;
 	}
