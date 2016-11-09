@@ -9,34 +9,34 @@ import com.job.bean.Job;
 
 public interface JobDao {
 	/**
-	 * 返回唯一一个兼职
+	 * 通过jobid来查询工作
 	 * @param jobId
 	 * @return
 	 */
 	public Job getJobByJobId(@Param("jobId") int jobId);
 	
 	/**
-	 * 返回某个人发布过的兼职
+	 * 通过用户的id来查找兼职
 	 * @param userId
 	 * @return
 	 */
 	public List<Job> getJobsByUserId(@Param("userId") int userId);
 	
 	/**
-	 * 可以添加 cityName, jobKindName ,userName三个参数
+	 * 综合查找兼职  工作地点 , 发布人姓名 ，工作种类
 	 * @param map
 	 * @return
 	 */
 	public List<Job> searchJobs(Map<String,Object> map);
 	
 	/**
-	 * 添加一个工作
+	 * 新增兼职
 	 * @param job
 	 */
 	public void addJob(Job job);
 	
 	/**
-	 * 删除已经发布的兼职
+	 * 删除兼职
 	 * @param jobId
 	 */
 	public void delJob(@Param("jobId") int jobId);

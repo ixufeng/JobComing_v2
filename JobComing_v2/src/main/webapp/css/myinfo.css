@@ -1,0 +1,49 @@
+
+.myinfo{
+	margin-top: 20px;
+}
+.myinfo li{
+	padding: 0px;
+	border-color: #337ab7;
+}
+
+.myinfo .list-group-item{
+	text-align: center;
+	padding: 8px 10px;
+	font-size: 14px;
+}
+.table tbody tr td{
+	border: 0px;
+}
+.table tbody tr th{
+	border: 0px;
+}
+.txt{
+	color: #999;
+}
+.table{
+	border: 1px solid #ddd;
+	border-top: 0px;
+}
+.table2 tbody tr td{
+	padding: 6px 4px;
+}
+.table2 tbody tr th{
+	padding: 6px 4px;
+}
+.modal{
+	z-index: 1200;
+}
+
+.modal .form-group ul {
+	padding-left: 15px;
+	margin-bottom: 30px;
+}
+.modal .form-group ul li{
+	width: 25px;
+	height: 25px;
+	list-style-type: none;
+	background: url(../img/star.png) no-repeat;
+	background-position: 0px 0px;
+	float: left;
+}
