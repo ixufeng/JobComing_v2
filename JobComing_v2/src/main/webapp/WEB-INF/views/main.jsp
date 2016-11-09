@@ -7,6 +7,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Expires" content="0">
+	    <meta http-equiv="kiben" content="no-cache">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<title>主界面</title>
 		<link href="<c:url value='/css/bootstrap.css'/>" rel="stylesheet">
@@ -165,52 +167,8 @@
 					       	<span class="glyphicon glyphicon-fire"></span>&nbsp;今&nbsp;日&nbsp;兼&nbsp;职&nbsp;推&nbsp;送
 					    </div>
 					     <ul class="list-group">
-					        <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
+					        
 					         <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
-					         <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
-					         <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
-					        <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
-					        <li class="list-group-item">
 					        	<a href="">[苏州]</a>&nbsp;
 					        	<a href="">[清洁]</a>&nbsp;
 					        	<a href="">
@@ -254,24 +212,7 @@
 					        		<span style="font-weight: bold;">...</span>
 					        	</a>
 					        </li>
-					         <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
-					         <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
+					        
 					    </ul>
 					</div>
 				</div>
