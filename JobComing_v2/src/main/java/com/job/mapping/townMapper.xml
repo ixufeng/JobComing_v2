@@ -23,4 +23,9 @@
 	<select id="getTownListByCity" parameterType="int" resultMap="town">
 		select * from addressTown where city_code=#{cityCode}
 	</select>
+	
+	<!-- 返回所有的区县集合 -->
+	<select id="getAllTown" resultMap="town">
+		select * from addressTown
+	</select>
 </mapper>

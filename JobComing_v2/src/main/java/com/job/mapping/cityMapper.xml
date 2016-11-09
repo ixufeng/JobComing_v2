@@ -24,4 +24,9 @@
 	<select id="getCityListByProvince" parameterType="int" resultMap="city" >
 		select * from addressCity where province_code=#{provinceCode}
 	</select>
+	
+	<!-- 返回所有的城市集合 -->
+	<select id="getAllCity" resultMap="city">
+		select * from addressCity
+	</select>
 </mapper>

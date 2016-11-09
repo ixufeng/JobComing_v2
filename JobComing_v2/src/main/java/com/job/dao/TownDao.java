@@ -22,4 +22,9 @@ public interface TownDao {
 	 * @return
 	 */
 	public List<AddressTown> getTownListByCity(int cityCode);
+	/**
+	 * 返回所有的区县集合
+	 * @return
+	 */
+	public List<AddressTown> getAllTown();
 }
