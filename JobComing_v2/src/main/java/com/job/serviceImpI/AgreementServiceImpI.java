@@ -10,5 +10,7 @@ import com.job.dao.JobDao;
 public class AgreementServiceImpI {
 	@Autowired
 	private AgreementDao agreementDao;
-	@Autowired JobDao jobDao;
+	@Autowired 
+	private JobDao jobDao;
+	
 }
