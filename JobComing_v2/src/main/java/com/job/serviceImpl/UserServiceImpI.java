@@ -1,4 +1,4 @@
-package com.job.serviceImpI;
+package com.job.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
