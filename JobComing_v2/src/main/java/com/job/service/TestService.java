@@ -1,9 +1,11 @@
 package com.job.service;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.job.bean.User;
+import com.job.dao.JobDao;
 import com.job.dao.UserDao;
 
 @Service
@@ -11,14 +13,20 @@ public class TestService {
 
 	@Autowired
 	private UserDao userDao;
+	@Autowired
+	private JobDao jobDao;
 	
 	
 	public void hello(){
-		User u = new User();
-		u.setUserName("admin");
-		u.setPassword("admin");
-		userDao.addUser(u);
-		System.out.println("≤Â»Î≥…π¶");
 		
+	/*Map<String,Object> map  = new HashMap<String,Object>();
+	
+	map.put("jobKindName", "Ê∏ÖÊ¥Å");
+	map.put("userName","admin");
+	map.put("cityName", "‰∏äÊµ∑");*/
+	
+	
+	System.out.println(jobDao.getJobByJobId(1).getCityName());
+	
 	}
 }

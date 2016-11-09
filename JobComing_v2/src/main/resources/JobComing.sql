@@ -1,4 +1,4 @@
---用户表
+
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(255) DEFAULT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---关注表
+--锟斤拷注锟斤拷
 CREATE TABLE IF NOT EXISTS `relationship`(
 
 	relationship_id int not null AUTO_INCREMENT,
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `relationship`(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 表的结构 `jobpublish` 工作发布表
+-- 
 --
 
 CREATE TABLE IF NOT EXISTS `job` (
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `job` (
   PRIMARY KEY (`job_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- jobkind 表 
+-- jobkind
 
 CREATE TABLE IF NOT EXISTS `jobkind` (
   `jobkind_id` int(11) NOT NULL AUTO_INCREMENT,
