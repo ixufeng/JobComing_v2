@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -8,10 +9,10 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<title>主界面</title>
-		<link href="/jobComing_v2/css/bootstrap.css" rel="stylesheet">
-		<link href="/jobComing_v2/css/site.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="/jobComing_v2/css/main.css" />
-		<link rel="shortcut icon" href="/jobComing_v2/img/favicon.png">
+		<link href="<c:url value='/css/bootstrap.css'/>" rel="stylesheet">
+		<link href="<c:url value='/css/site.min.css'/>" rel="stylesheet">
+		<link rel="stylesheet" href="<c:url value='/css/main.css'/>" />
+		<link rel="shortcut icon" href="<c:url value='/img/favicon.png'/>">
 	</head>
 
 	<body class="home-template">
@@ -97,7 +98,7 @@
 										<tr>
 											<td width="55" valign="top" align="center">
 												<a href="#">
-													<img src="/img/public.png" style="width: 55px; height: 55px;" class="img-responsive img-rounded" border="0">
+													<img src="<c:url value='/img/public.png'/>" style="width: 55px; height: 55px;" class="img-responsive img-rounded" border="0">
 												</a>
 											</td>
 											<td width="10"></td>
@@ -285,8 +286,8 @@
 		</div>
 		
 		<iframe id="webchat7moor" src="chat.html" style="display: none; margin: 0px; padding: 0px; width: 320px; height: 542px; border-width: 0px; border-radius: 3px; transition: height 0.5s ease-out; z-index: 99999; bottom: 0px; right: 0px; position: fixed;"></iframe>
-		<script type="text/javascript" src="/jobComing_v2/js/jquery.js" ></script>
-		<script type="text/javascript" src="/jobComing_v2/js/bootstrap.js" ></script>
+		<script type="text/javascript" src="<c:url value='/js/jquery.js'/>" ></script>
+		<script type="text/javascript" src="<c:url value='/js/bootstrap.js'/>" ></script>
 		<script>
 			$(".fb-icon").click(function(){
 				$("#webchat7moor").css("display","block");
