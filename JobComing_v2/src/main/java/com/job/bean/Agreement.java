@@ -8,12 +8,12 @@ import java.util.Date;
  *
  */
 public class Agreement {
-
 	private int agreementId;
 	private int jobId;
 	private int userId;
 	private int status;
 	private Date completeTime;
+	private String jobName;
 	public int getAgreementId() {
 		return agreementId;
 	}
@@ -43,6 +43,12 @@ public class Agreement {
 	}
 	public void setCompleteTime(Date completeTime) {
 		this.completeTime = completeTime;
+	}
+	public String getJobName() {
+		return jobName;
+	}
+	public void setJobName(String jobName) {
+		this.jobName = jobName;
 	}
 	
 }

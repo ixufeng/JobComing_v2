@@ -17,4 +17,9 @@
 	<select id="getProvinceByCode" parameterType="int" resultMap="province">
 		select * from addressProvince where province_code=#{code}
 	</select>
+	
+	<!-- 返回所有的省份集合 -->
+	<select id="getAllProvince" resultMap="province" >
+		select * from addressProvince
+	</select>
 </mapper>

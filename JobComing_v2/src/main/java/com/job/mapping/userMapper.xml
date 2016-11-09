@@ -24,7 +24,7 @@
 	
 	<!-- 查询简单的user对象 -->
 	<select id="getUserByUserName" resultMap="User">
-		select * from user where user_id = #{userName}
+		select * from user where user_name = #{userName}
 	</select>
 	
 	<!-- 更新用户头像 -->

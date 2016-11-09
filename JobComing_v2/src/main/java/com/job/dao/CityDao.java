@@ -25,4 +25,9 @@ public interface CityDao {
 	 * @return
 	 */
 	public List<AddressCity> getCityListByProvince(int provinceCode);
+	/**
+	 * 返回所有的城市集合
+	 * @return
+	 */
+	public List<AddressCity> getAllCity();
 }
