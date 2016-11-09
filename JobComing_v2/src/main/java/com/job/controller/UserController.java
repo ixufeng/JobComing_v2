@@ -21,8 +21,10 @@ public class UserController {
 		}
 		return new ModelAndView("login");
 	}
+	
 	@RequestMapping("/index")
 	public ModelAndView index(){
+		System.out.println(111);
 		return new ModelAndView("login");
 	}
 }

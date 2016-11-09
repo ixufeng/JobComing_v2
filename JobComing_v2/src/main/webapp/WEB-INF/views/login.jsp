@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,9 +10,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>登录</title>
 		<!-- CSS -->
-		<link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="stylesheet" href="css/login_register.css">
-		<link rel="shortcut icon" href="img/favicon.png">
+		<link rel="stylesheet" href="<c:url value='/css/bootstrap.css'/>"/>
+		<link rel="stylesheet" href="<c:url value='/css/login_register.css'/>"/>
+		<link rel="shortcut icon"  href="<c:url value='/img/favicon.png'/>"/>
 	</head>
 
 	<body>
@@ -31,7 +32,7 @@
 							<div class="form-bottom">
 								<div class="form-group">
 									<label class="mlabel"></label>
-									<input type="text" name="username" placeholder="输入用户名" class="form-control" id="login_username">
+									<input type="text" name="userName" placeholder="输入用户名" class="form-control" id="login_username">
 								</div>
 								<div class="form-group" style="margin-bottom: 15px;">
 									<label class="mlabel"></label>
@@ -46,11 +47,11 @@
 			</div>
 		</div>
 		<!-- Javascript -->
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.js"></script>
-		<script src="js/jquery.backstretch.min.js"></script>
-		<script src="js/login_register.js"></script>
-		<script src="js/login_validate.js"></script>
-		<script src="http://static.geetest.com/static/tools/gt.js"></script>
+		<script src="<c:url value='/js/jquery.js'/>"></script>
+		<script src="<c:url value='js/bootstrap.js'/>"></script>
+		<script src="<c:url value='js/jquery.backstretch.min.js'/>"></script>
+		<script src="<c:url value='js/login_register.js'/>"></script>
+		<script src="<c:url value='js/login_validate.js'/>"></script>
+		<script src="<c:url value='http://static.geetest.com/static/tools/gt.js'/>"></script>
 	</body>
 </html>
