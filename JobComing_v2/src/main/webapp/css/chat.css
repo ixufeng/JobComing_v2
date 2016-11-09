@@ -59,7 +59,6 @@ body{
 }
 .mCustomScrollBox {
     position: relative;
-    overflow-y: auto;
     height: 100%;
     max-width: 100%;
     outline: 0;

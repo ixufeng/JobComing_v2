@@ -17,6 +17,7 @@
 //注册表单  用户名
 $("#register_username").blur(function(){
 	//用户名规则--数字，字母，下划线，中文 6-12位
+	var username_reg = /^[a-z\d_\u4e00-\u9fa5]{6,12}$/;
 	var username_reg = /^[A-Za-z\d_\u4e00-\u9fa5]{6,12}$/;
 	var value = $(this).val();
 	if(value==""){
@@ -30,6 +31,15 @@ $("#register_username").blur(function(){
 	else{
 		$.ajax({
 			type:"post",
+			url:"",
+			data:{username:value},
+			success:function(date){
+				
+			},
+			error:function(){
+				
+			},
+			dataType:"",
 			url:"AjaxServlet?curr="+"register_username",
 			data:{username:value},
 			success:function(data){
@@ -96,6 +106,8 @@ $("#register_email").blur(function(){
 		$(this).addClass("input-error");
 	}
 	else{
+		$(this).prev().html("");
+		$(this).removeClass("input-error");
 		$.ajax({
 			type:"post",
 			url:"AjaxServlet?curr="+"register_email",
@@ -127,6 +139,8 @@ $("#register_phone").blur(function(){
 		$(this).addClass("input-error");
 	}
 	else{
+		$(this).prev().html("");
+		$(this).removeClass("input-error");
 		$.ajax({
 			type:"post",
 			url:"AjaxServlet?curr="+"register_phone",

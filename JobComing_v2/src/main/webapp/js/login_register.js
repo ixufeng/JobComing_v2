@@ -40,4 +40,19 @@ jQuery(document).ready(function() {
     });
 });
 
+
+/**
+ * 验证登录 注册
+ */
+ $('.registration-form').on('submit', function(e) {
+    $(this).find('input[type="text"], input[type="password"], select').each(function() {
+    	if( $(this).val() == " "|| $(this).val() == "") {
+    		e.preventDefault();
+    		$(this).addClass('input-error'); 
+    	}
+    	else {
+    		$(this).removeClass('input-error');
+    	}
+    });  	
+});
 	
