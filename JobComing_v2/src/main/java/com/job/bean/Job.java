@@ -2,6 +2,7 @@ package com.job.bean;
 
 import java.util.Date;
 
+
 public class Job {
 
 	
@@ -98,8 +99,6 @@ public class Job {
 	public void setIsValidate(int isValidate) {
 		this.isValidate = isValidate;
 	}
-	
-	
 	
 	
 	

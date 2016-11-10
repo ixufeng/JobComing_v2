@@ -60,5 +60,14 @@
 		select * from user where user_id in (select user_id_a from relationship where user_id_b = #{userId})
 	</select>
 	
+	<!-- 通过邮箱查找用户 -->
+	<select id="getUserByEmail" resultMap="User" parameterType="java.lang.String">
+		select * from user where email = #{email}
+	</select>
+	
+	<!-- 通过电话查找用户 -->
+	<select id="getUserByPhone" resultMap="User" parameterType="java.lang.Long">
+		select * from user where phone = #{phone}
+	</select>
 	
 </mapper>
