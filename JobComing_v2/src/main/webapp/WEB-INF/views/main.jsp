@@ -26,10 +26,20 @@
 			<a class="pull-right" style="margin-right:30px;">弹幕</a>
 		</div>
 		<header class="site-header jumbotron">
-			<div class="site-nav">
-				<a href="login">登录</a> <span>/</span>
-				<a href="register">注册</a>
-			</div>
+			<c:choose>
+		  	<c:when test="${empty loginUser}">
+				<div class="site-nav"> 
+					<a href="user/goLogin">登录</a> <span>/</span>
+					<a href="user/goRegister">注册</a>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div class="site-nav">
+					<a href="user/goUser">${loginUser.userName}</a> <span>/</span>
+					<a href="user/goJobPublish">发布兼职</a>
+				</div>
+			</c:otherwise>
+		  </c:choose>
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12">
@@ -67,7 +77,7 @@
 							<div id="job-kind-name">
 								<span>兼职形式：</span>
 								<a href="jobs?jobKindName=-1" data-name="所有" class="active job-kind-name">所有</a>
-								<c:forEach items="${jobKinds }" var="jobKind">
+								<c:forEach items="${jobKinds}" var="jobKind">
 									<a class="active job-kind-name" data-name="${jobKind.jobKindName }" href="jobs?jobKindName=${jobKind.jobKindName }">${jobKind.jobKindName }</a>
 								</c:forEach>
 							</div>

@@ -19,7 +19,11 @@ import com.job.utils.DateEditor;
 @Controller
 @RequestMapping("/jobPublish")
 public class JobPublishController {
-	@Autowired
+	/**
+	 * 宸ヤ綔鍙戝竷
+	 * @param job
+	 * @return
+	 */
 	private JobService jobService;
 	@Autowired
 	private HttpSession session;
@@ -51,6 +55,4 @@ public class JobPublishController {
 	public void initBinderTwo(WebDataBinder webDataBinder){
 		webDataBinder.registerCustomEditor(Date.class, "endTime",new DateEditor());;
 	}
-	
-
 }
