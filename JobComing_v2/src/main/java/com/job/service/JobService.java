@@ -16,5 +16,6 @@ public interface JobService {
 	public List<Job> getJobs(Map<String,Object> map);
 	
 	public List<JobKind> getJobKinds();
-	
+
+	public boolean addJob(Job job);
 }

@@ -1,6 +1,7 @@
 package com.job.serviceImpl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -56,6 +57,15 @@ public class JobServiceImpl implements JobService {
 		list = jobKindDao.getAllJobKind();
 		
 		return list;
+	}
+
+	@Override
+	public boolean addJob(Job job) {
+		if(job!=null){
+			job.setJobTime(new Date());
+			
+		}
+		return false;
 	}
 	
 	
