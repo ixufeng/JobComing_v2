@@ -6,34 +6,40 @@ import org.springframework.stereotype.Service;
 import com.job.bean.User;
 import com.job.dao.UserDao;
 import com.job.service.UserService;
+
+/**
+ * 用户服务类
+ * @author xufeng
+ *
+ */
 @Service
-public class UserServiceImpI implements UserService {
+public class UserServiceImpl implements UserService {
+
 	@Autowired
-	private UserDao userdao;
+	private UserDao userDao;
+	
 	@Override
-	/**
-	 * 登录
-	 */
 	public boolean login(User u) {
-		User user=userdao.getUserByUserName(u.getUserName());
+		
+		if(u==null||u.getUserName()==null||u.getPassword()==null)
+			return false;
+		
+		User user = userDao.getUserByUserName(u.getUserName());
 		if(user!=null){
 			if(user.getPassword().equals(u.getPassword())){
 				return true;
-			}else{
-				return false;
 			}
 		}
+		
+		
 		return false;
 	}
-	/**
-	 * 注册
-	 */
+
 	@Override
 	public boolean register(User u) {
-		if(userdao.addUser(u)){
+		if(userDao.addUser(u)){
 			return true;
 		}
 		return false;
 	}
-
 }

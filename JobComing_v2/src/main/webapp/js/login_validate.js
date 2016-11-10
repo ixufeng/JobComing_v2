@@ -73,7 +73,7 @@ function geetestValidate() {
 		captchaObj.onSuccess(function() {
 			var validate = captchaObj.getValidate();
 			$.ajax({
-				url : "VerifyLoginServlet", // 进行二次验证
+				url : "../validate/gtTwo", // 进行二次验证
 				type : "post",
 				dataType : "json",
 				data : {
@@ -113,7 +113,7 @@ function geetestValidate() {
 	};
 	// 验证开始需要向网站主后台获取id，challenge，success（是否启用failback）
 	$.ajax({
-		url : "StartCaptchaServlet?t=" + (new Date()).getTime(), // 加随机数防止缓存
+		url : "../validate/gtOne?t=" + (new Date()).getTime(), // 加随机数防止缓存
 		type : "post",
 		dataType : "json",
 		success : function(data) {

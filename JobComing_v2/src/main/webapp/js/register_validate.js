@@ -31,16 +31,7 @@ $("#register_username").blur(function(){
 	else{
 		$.ajax({
 			type:"post",
-			url:"",
-			data:{username:value},
-			success:function(date){
-				
-			},
-			error:function(){
-				
-			},
-			dataType:"",
-			url:"AjaxServlet?curr="+"register_username",
+			url:"../UserAjax/userIsExist",
 			data:{username:value},
 			success:function(data){
 				$("#register_username").prev().text(data);
@@ -110,7 +101,7 @@ $("#register_email").blur(function(){
 		$(this).removeClass("input-error");
 		$.ajax({
 			type:"post",
-			url:"AjaxServlet?curr="+"register_email",
+			url:"../UserAjax/emailIsExist",
 			data:{email:value},
 			success:function(data){
 				$("#register_email").prev().text(data);
@@ -143,7 +134,7 @@ $("#register_phone").blur(function(){
 		$(this).removeClass("input-error");
 		$.ajax({
 			type:"post",
-			url:"AjaxServlet?curr="+"register_phone",
+			url:"../UserAjax/phoneIsExist",
 			data:{phone:value},
 			success:function(data){
 				$("#register_phone").prev().text(data);
