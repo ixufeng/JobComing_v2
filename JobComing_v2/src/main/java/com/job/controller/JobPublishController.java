@@ -19,7 +19,7 @@ public class JobPublishController {
 	@Autowired
 	private JobService jService;
 	/**
-	 * 工作发布
+	 * 宸ヤ綔鍙戝竷
 	 * @param job
 	 * @return
 	 */
@@ -39,15 +39,5 @@ public class JobPublishController {
 	@InitBinder
 	public void initBinderTwo(WebDataBinder webDataBinder){
 		webDataBinder.registerCustomEditor(Date.class, "endTime",new DateEditor());;
-	}
-	/**
-	 * 工作的详细信息
-	 * @param jobId
-	 * @return
-	 */
-	@RequestMapping("/jobInfo")
-	public ModelAndView jobInfo(@RequestParam("jobId") int jobId){
-		Job job=jService.getJobById(jobId);
-		return new ModelAndView("jobInfo","job",job);
 	}
 }
