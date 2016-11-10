@@ -23,7 +23,7 @@ import com.job.service.JobService;
 import com.job.utils.TimeUtils;
 
 /**
- * 主页核心控制
+ * 
  * @author xufeng
  *
  */
@@ -34,7 +34,6 @@ public class JobCore {
 	
 	@Autowired
 	private JobService jobService;
-	private Integer pageSize = 10;
 	
 	@Autowired
 	private HttpSession session;
@@ -45,25 +44,25 @@ public class JobCore {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		//先获取session中保存的searchkey
+		//鍏堣幏鍙杝ession涓繚瀛樼殑searchkey
 		@SuppressWarnings("unchecked")
 		Map<String,Object>sessionMap = (Map<String, Object>) this.session.getAttribute("sessionMap");
 		
-		//url中传来的map
+		//url涓紶鏉ョ殑map
 		Map<String,Object> map = searchMap.getMap();
 		
 		if(pageIndex!=null){
 			
 			map.put("pageIndex", pageIndex);
 		}
-		//以url中的map为优先
+		//浠rl涓殑map涓轰紭鍏�
 		if(sessionMap!=null){
 			sessionMap.putAll(map);
 		}else{
 			sessionMap = new HashMap<String,Object>();
 		}
 		
-		//添加兼职种类
+		//娣诲姞鍏艰亴绉嶇被
 		List<JobKind> list = new ArrayList<JobKind>();
 		list = jobService.getJobKinds();
 		mv.addObject("jobKinds", list);

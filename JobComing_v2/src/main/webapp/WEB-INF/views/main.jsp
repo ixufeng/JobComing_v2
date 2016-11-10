@@ -13,13 +13,17 @@
 		<title>主界面</title>
 		<link href="<c:url value='/css/bootstrap.css'/>" rel="stylesheet">
 		<link href="<c:url value='/css/site.min.css'/>" rel="stylesheet">
+		<link href="<c:url value='/css/message.css'/>" rel="stylesheet">
+		<link href="<c:url value='/css/barrager.css'/>" rel="stylesheet">
 		<link rel="stylesheet" href="<c:url value='/css/main.css'/>" />
 		<link rel="shortcut icon" href="<c:url value='/img/favicon.png'/>">
+		<script type="text/javascript" src="http://cdn.goeasy.io/goeasy.js"></script>
 	</head>
 
 	<body class="home-template">
 		<div class="site-notice">
 			<a href=""><em>JobComing~</em></a>
+			<a class="pull-right" style="margin-right:30px;">弹幕</a>
 		</div>
 		<header class="site-header jumbotron">
 			<div class="site-nav">
@@ -172,16 +176,7 @@
 					       	<span class="glyphicon glyphicon-fire"></span>&nbsp;今&nbsp;日&nbsp;兼&nbsp;职&nbsp;推&nbsp;送
 					    </div>
 					     <ul class="list-group" id="today-jobs">
-					       
-					        	<!--  <li class="list-group-item">
-						        	<a href="">[苏州]</a>&nbsp;
-						        	<a href="">[清洁]</a>&nbsp;
-						        	<a href="">
-						        		<span class="glyphicon glyphicon-map-marker"></span>
-						        		&nbsp;江苏科技大学
-						        		<span style="font-weight: bold;">...</span>
-						        	</a>
-					        	</li>  -->
+					 
 					        
 					    </ul>
 					</div>
@@ -213,10 +208,24 @@
 				<span>用户反馈</span>
 			</div>
 		</div>
-		
+		<div class="container" id="bullet-con">
+			<div class="row">
+				<div class="col col-xs-12 col-md-9 col-md-offset-2">
+					<div class="input-group">
+				      <input type="text" id="bullet-text" class="form-control">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" type="button" id="bullet-send">发送弹幕</button>
+				      </span>
+				    </div><!-- /input-group -->
+				</div>
+				
+			</div>
+		</div>
 		<iframe id="webchat7moor" src="chat.html" style="display: none; margin: 0px; padding: 0px; width: 320px; height: 542px; border-width: 0px; border-radius: 3px; transition: height 0.5s ease-out; z-index: 99999; bottom: 0px; right: 0px; position: fixed;"></iframe>
 		<script type="text/javascript" src="<c:url value='/js/jquery.js'/>" ></script>
 		<script type="text/javascript" src="<c:url value='/js/bootstrap.js'/>" ></script>
+		<script type="text/javascript" src="<c:url value='/js/jquery.barrager.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/js/message.js'/>"></script>
 		<script>
 			$(".fb-icon").click(function(){
 				$("#webchat7moor").css("display","block");
