@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.job.bean.Job;
+import com.job.bean.JobKind;
 import com.job.bean.SearchMap;
 import com.job.service.JobService;
 import com.job.utils.TimeUtils;
@@ -62,6 +63,11 @@ public class JobCore {
 			sessionMap = new HashMap<String,Object>();
 		}
 		
+		//添加兼职种类
+		List<JobKind> list = new ArrayList<JobKind>();
+		list = jobService.getJobKinds();
+		mv.addObject("jobKinds", list);
+		
 		
 		mv.setViewName("main");
 		mv.addObject("jobs", jobService.getJobs(map));
@@ -93,6 +99,14 @@ public class JobCore {
 		return list;
 	}
 	
+	@RequestMapping("ajax_jobKinds")
+	public @ResponseBody List<JobKind> getJobKinds(){
+		List<JobKind> list = new ArrayList<JobKind>();
+		
+		list = jobService.getJobKinds();
+		
+		return list;
+	}
 	
 
 }

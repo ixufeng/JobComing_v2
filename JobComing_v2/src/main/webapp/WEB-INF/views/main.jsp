@@ -62,13 +62,10 @@
 							<div class="sep5" style="height: 20px;"></div>
 							<div id="job-kind-name">
 								<span>兼职形式：</span>
-								<a class="active">所有</a>
-								<a href="" class="active">清洁</a>
-								<a href="" class="active">家教</a>
-								<a href="" class="active">宣传</a>
-								<a href="" class="active">派送</a>
-								<a href="" class="active">调研</a>
-								<a href="" class="active">促销</a>
+								<a href="jobs?jobKindName=-1" data-name="所有" class="active job-kind-name">所有</a>
+								<c:forEach items="${jobKinds }" var="jobKind">
+									<a class="active job-kind-name" data-name="${jobKind.jobKindName }" href="jobs?jobKindName=${jobKind.jobKindName }">${jobKind.jobKindName }</a>
+								</c:forEach>
 							</div>
 							<div class="sep5" style="height: 20px;"></div>
 							<div id="week-time">							
@@ -100,9 +97,7 @@
 					
 					<main class="packages-list-container" id="all-packages">
 						<ul class="list-group">
-						<c:forEach items="${jobs}" var="job">
-								
-							
+						<c:forEach items="${jobs}" var="job">							
 							
 							<li class="list-group-item">
 								<table style="border: 0px;width: 100%;">
@@ -260,6 +255,7 @@
 				url:"ajax_searchKey",
 				dataType:"json",
 				success:function(data){
+					console.log(data);
 					if(data.cityName!=null){
 						var cityName = data.cityName.replace(/\%/g,"");
 						$(".city").removeClass("ser-kind");
@@ -279,15 +275,18 @@
 					}
 
 					if(data.jobKindName!=null){
-						var jobKindName = data.jobKindName;
+						var jobKindName = data.jobKindName.replace(/\%/g,"");
+						console.log(jobKindName);
 						$("#job-kind-name").find("a").removeClass("ser-kind");
+						$(".job-kind-name[data-name='"+jobKindName+"']").addClass("ser-kind");
+					}else{
+						$(".job-kind-name[data-name='所有']").addClass("ser-kind");
 					}
 				},
 				error:function(){
 					console.log("error");
 				}
 			});
-			
 			
 			
 		</script>

@@ -32,13 +32,13 @@ public class SearchMap {
 	public void setWeekTime(String weekTime) {
 		this.weekTime = weekTime;
 	}
-	public String getKindName() {
-		return this.jobKindName;
-	}
-	public void setKindName(String kindName) {
-		this.jobKindName = kindName;
-	}
 	
+	public String getJobKindName() {
+		return jobKindName;
+	}
+	public void setJobKindName(String jobKindName) {
+		this.jobKindName = jobKindName;
+	}
 	public Map<String,Object> getMap(){
 		
 		Map<String,Object> map = new HashMap<String,Object>();
@@ -64,10 +64,10 @@ public class SearchMap {
 		}
 			
 		if(this.jobKindName!=null&&!this.jobKindName.equals("")){
-			map.put("kindName","%" + this.jobKindName + "%");
+			map.put("jobKindName","%" + this.jobKindName + "%");
 		}
 		if("-1".equals(this.jobKindName)){
-			map.put("kindName",null);
+			map.put("jobKindName",null);
 		}
 			
 		

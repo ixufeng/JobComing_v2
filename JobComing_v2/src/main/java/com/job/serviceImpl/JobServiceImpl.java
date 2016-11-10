@@ -3,10 +3,14 @@ package com.job.serviceImpl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.job.bean.Job;
+import com.job.bean.JobKind;
 import com.job.dao.JobDao;
+import com.job.dao.JobKindDao;
 import com.job.service.JobService;
 
 @Service
@@ -14,7 +18,8 @@ public class JobServiceImpl implements JobService {
 
 	@Autowired
 	private JobDao jobDao;
-	
+	@Autowired
+	private JobKindDao jobKindDao;
 	@Override
 	public List<Job> getJobs(Map<String, Object> map) {
 		
@@ -43,5 +48,16 @@ public class JobServiceImpl implements JobService {
 		
 		return list;
 	}
+
+	@Override
+	public List<JobKind> getJobKinds() {
+		List<JobKind> list = new ArrayList<JobKind>();
+		
+		list = jobKindDao.getAllJobKind();
+		
+		return list;
+	}
+	
+	
 
 }
