@@ -29,5 +29,4 @@ public interface JobService {
 	 */
 	public boolean addJob(Job job);
 	
-	public Job getJobById(int id); 
 }
