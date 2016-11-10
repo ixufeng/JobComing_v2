@@ -26,10 +26,20 @@
 			<a class="pull-right" style="margin-right:30px;">弹幕</a>
 		</div>
 		<header class="site-header jumbotron">
-			<div class="site-nav">
-				<a href="login">登录</a> <span>/</span>
-				<a href="register">注册</a>
-			</div>
+			<c:choose>
+		  	<c:when test="${empty loginUser}">
+				<div class="site-nav"> 
+					<a href="user/goLogin">登录</a> <span>/</span>
+					<a href="user/goRegister">注册</a>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div class="site-nav">
+					<a href="user/goUser">${loginUser.userName}</a> <span>/</span>
+					<a href="user/goJobPublish">发布兼职</a>
+				</div>
+			</c:otherwise>
+		  </c:choose>
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12">
@@ -116,7 +126,7 @@
 											<td width="auto" valign="middle">
 												<span class="item_title"> 
 													<a href="" style="color: #00b38a;">[${job.kindName}]</a>
-													<a href="jobPublish/jobInfo?jobId=${job.jobId}" style="color: #4d5256;">${job.jobScribe}</a>
+													<a href="" style="color: #4d5256;">${job.jobScribe}</a>
 												</span>
 												<div class="sep5" style="height: 1px;"></div>
 

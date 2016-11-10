@@ -22,7 +22,7 @@
 		</div>
 		<header class="site-header jumbotron">
 			<c:choose>
-		  	<c:when test="${empty sessionScope.user}">
+		  	<c:when test="${empty loginUser}">
 				<div class="site-nav">
 					<a href="login.jsp">登录</a> <span>/</span>
 					<a href="register.jsp">注册</a>
@@ -30,8 +30,8 @@
 			</c:when>
 			<c:otherwise>
 				<div class="site-nav">
-					<a href="PersonInforServlet.do">${sessionScope.user.userName}</a> <span>/</span>
-					<a href="MainPageServlet">首页</a>
+					<a href="goUser">${loginUser.userName}</a> <span>/</span>
+					<a href="../jobs">首页</a>
 				</div>
 			</c:otherwise>
 		  </c:choose>

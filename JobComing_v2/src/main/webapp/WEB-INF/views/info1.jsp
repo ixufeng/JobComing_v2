@@ -23,16 +23,16 @@
 		</div>
 		<header class="site-header jumbotron">
 			<c:choose>
-		  	<c:when test="${empty sessionScope.user}">
+		  	<c:when test="${empty loginUser}">
 				<div class="site-nav">
-					<a href="login.jsp">登录</a> <span>/</span>
-					<a href="register.jsp">注册</a>
+					<a href="../login.jsp">登录</a> <span>/</span>
+					<a href="../register.jsp">注册</a>
 				</div>
 			</c:when>
 			<c:otherwise>
 				<div class="site-nav">
-					<a>${sessionScope.user.userName}</a> <span>/</span>
-					<a href="MainPageServlet">首页</a>
+					<a href="goUser">${loginUser.userName}</a> <span>/</span>
+					<a href="../jobs">首页</a>
 				</div>
 			</c:otherwise>
 		  </c:choose>
@@ -65,22 +65,22 @@
 			<div class="row">
 				<div class="col-md-2 myinfo visible-lg visible-md">
 					<div class="list-group">
-						<a href="info1.jsp" class="list-group-item active">我的信息</a>
-						<a href="info2.jsp" class="list-group-item">参与记录</a>
-						<a href="info3.jsp" class="list-group-item">分享记录</a>
-						<a href="MainPageServlet" class="list-group-item">返回首页</a>
+						<a href="goUser" class="list-group-item active">我的信息</a>
+						<a href="goTogether" class="list-group-item">参与记录</a>
+						<a href="goPublish" class="list-group-item">分享记录</a>
+						<a href="../jobs" class="list-group-item">返回首页</a>
 					</div>
 				</div>
 				<div class="col-md-10 myinfo">
 					<ul class="nav nav-tabs">
 						<li class="active bar">
-							<a href="info1.jsp">我的信息</a>
+							<a href="goUser">我的信息</a>
 						</li>
 						<li class="bar">
-							<a href="info2.jsp">参与记录</a>
+							<a href="goTogether">参与记录</a>
 						</li>
 						<li class="bar">
-							<a href="info3.jsp">分享记录</a>
+							<a href="goPublish">分享记录</a>
 						</li>
 					</ul>
 					<table class="table table1">

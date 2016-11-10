@@ -31,7 +31,7 @@ public class UserController {
 	@RequestMapping("/login")
 	public ModelAndView login(User u){
 		if(uService.login(u)){
-			return new ModelAndView("main","loginUser",u);
+			return new ModelAndView("redirect:../jobs","loginUser",u);
 		}
 		return new ModelAndView("login");
 	}
@@ -47,11 +47,34 @@ public class UserController {
 		}
 		return new ModelAndView("register");
 	}
-	@RequestMapping("/index")
-	public ModelAndView index(){
+	@RequestMapping("/goLogin")
+	public ModelAndView gologin(){
+		return new ModelAndView("login");
+	}
+	@RequestMapping("/goRegister")
+	public ModelAndView goRegister(){
+		return new ModelAndView("register");
+	}
+	@RequestMapping("/goUser")
+	public ModelAndView goInfo1(){
+		return new ModelAndView("info1");
+	}
+	@RequestMapping("/goJobPublish")
+	public ModelAndView goJobPublish(){
+		return new ModelAndView("jobpublish");
+	}
+	@RequestMapping("/goTogether")
+	public ModelAndView goInfo2(){
+		return new ModelAndView("info2");
+	}
+	@RequestMapping("/goPublish")
+	public ModelAndView goInfo3(){
 		return new ModelAndView("info3");
 	}
-	
+	@RequestMapping("/goMain")
+	public ModelAndView goMain(){
+		return new ModelAndView("main");
+	}
 	@RequestMapping("ajax_jobs")
 	public @ResponseBody List<Job>getJobs(){
 		
