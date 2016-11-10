@@ -16,5 +16,16 @@ public interface JobService {
 	public List<Job> getJobs(Map<String,Object> map);
 	
 	public List<JobKind> getJobKinds();
-	
+	/**
+	 * 通过工作id查找工作
+	 * @param jobId
+	 * @return
+	 */
+	public Job getJobById(int jobId);
+	/**
+	 * 添加工作
+	 * @param job
+	 * @return
+	 */
+	public boolean addJob(Job job);
 }

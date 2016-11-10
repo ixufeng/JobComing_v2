@@ -42,7 +42,6 @@ public class JobServiceImpl implements JobService {
 				//默认每个十个，暂时用常量代替
 				map.put("pageSize", 10);
 			}
-			
 			list = jobDao.searchJobs(map);
 		}
 		
@@ -57,7 +56,25 @@ public class JobServiceImpl implements JobService {
 		
 		return list;
 	}
-	
-	
 
+	@Override
+	public Job getJobById(int jobId) {
+		if(jobId!=0){
+			Job job=new Job();
+			job=jobDao.getJobByJobId(jobId);
+			return job;
+		}else{
+			return null;
+		}
+		
+	}
+
+	@Override
+	public boolean addJob(Job job) {
+		if(job!=null){
+			jobDao.addJob(job);
+			return true;
+		}
+		return false;
+	}
 }

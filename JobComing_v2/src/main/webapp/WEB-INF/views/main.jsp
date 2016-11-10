@@ -63,7 +63,7 @@
 							<div id="job-kind-name">
 								<span>兼职形式：</span>
 								<a href="jobs?jobKindName=-1" data-name="所有" class="active job-kind-name">所有</a>
-								<c:forEach items="${jobKinds }" var="jobKind">
+								<c:forEach items="${jobKinds}" var="jobKind">
 									<a class="active job-kind-name" data-name="${jobKind.jobKindName }" href="jobs?jobKindName=${jobKind.jobKindName }">${jobKind.jobKindName }</a>
 								</c:forEach>
 							</div>
@@ -112,7 +112,7 @@
 											<td width="auto" valign="middle">
 												<span class="item_title"> 
 													<a href="" style="color: #00b38a;">[${job.kindName}]</a>
-													<a href="" style="color: #4d5256;">${job.jobScribe}</a>
+													<a href="../jobPublish/jobInfo/jobId=${job.jobId}" style="color: #4d5256;">${job.jobScribe}</a>
 												</span>
 												<div class="sep5" style="height: 1px;"></div>
 
