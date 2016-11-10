@@ -116,7 +116,7 @@
 											<td width="auto" valign="middle">
 												<span class="item_title"> 
 													<a href="" style="color: #00b38a;">[${job.kindName}]</a>
-													<a href="../jobPublish/jobInfo/jobId=${job.jobId}" style="color: #4d5256;">${job.jobScribe}</a>
+													<a href="jobPublish/jobInfo?jobId=${job.jobId}" style="color: #4d5256;">${job.jobScribe}</a>
 												</span>
 												<div class="sep5" style="height: 1px;"></div>
 
