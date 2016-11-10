@@ -7,16 +7,22 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.job.bean.Job;
-import com.job.service.JobDaoService;
+import com.job.service.JobService;
 import com.job.utils.DateEditor;
 @Controller
 @RequestMapping("/jobPublish")
 public class JobPublishController {
 	@Autowired
-	private JobDaoService jService;
+	private JobService jService;
+	/**
+	 * 工作发布
+	 * @param job
+	 * @return
+	 */
 	@RequestMapping(value="/submitJob",method=RequestMethod.POST)
 	public ModelAndView jobPublish( Job job){
 		if(jService.addJob(job)){
@@ -34,5 +40,14 @@ public class JobPublishController {
 	public void initBinderTwo(WebDataBinder webDataBinder){
 		webDataBinder.registerCustomEditor(Date.class, "endTime",new DateEditor());;
 	}
-
+	/**
+	 * 工作的详细信息
+	 * @param jobId
+	 * @return
+	 */
+	@RequestMapping("/jobInfo")
+	public ModelAndView jobInfo(@RequestParam("jobId") int jobId){
+		Job job=jService.getJobById(jobId);
+		return new ModelAndView("jobInfo","job",job);
+	}
 }

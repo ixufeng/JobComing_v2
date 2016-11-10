@@ -40,6 +40,6 @@ public class UserController {
 	}
 	@RequestMapping("/index")
 	public ModelAndView index(){
-		return new ModelAndView("jobpublish");
+		return new ModelAndView("main");
 	}
 }
