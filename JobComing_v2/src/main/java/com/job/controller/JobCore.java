@@ -106,6 +106,14 @@ public class JobCore {
 		
 		return list;
 	}
+	@RequestMapping("/jobInfo")
+	public ModelAndView getJobInfo(@RequestParam("jobId") int jobId){
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("job", jobService.getJobById(jobId));
+		mv.setViewName("jobInfo");
+		return mv;
+	}
 	
 
 }

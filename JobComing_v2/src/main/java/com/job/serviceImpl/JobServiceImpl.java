@@ -68,6 +68,12 @@ public class JobServiceImpl implements JobService {
 		return false;
 	}
 	
+	@Override
+	public Job getJobById(int id){
+		
+		return jobDao.getJobByJobId(id);
+		
+	}
 	
 
 }

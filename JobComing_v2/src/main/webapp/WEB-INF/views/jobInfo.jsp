@@ -52,16 +52,16 @@
 								<tbody>
 									<tr>
 										<td width="60" class="txt">种类</td>
-										<td><a href="">[清洁]</a></td>
+										<td><a href="">[${job.kindName }]</a></td>
 										<td width="60" class="txt">开始</td>
-										<td class="txt2">03/05</td>
+										<td class="txt2">${job.beginTime }</td>
 										<td rowspan="4" width="90" class="hidden-xs">
 											<img src="img/public.png" style="width: 80px;height: 90px;" class="img-thumbnail img-responsive" />
 										</td>
 									</tr>
 									<tr>
 										<td width="60" class="txt">发布者</td>
-										<td class="txt2">昵称昵称</td>
+										<td class="txt2">${job.sendUser.userName }</td>
 										<td width="60" class="txt">结束</td>
 										<td class="txt2">03/08</td>
 									</tr>
@@ -69,7 +69,7 @@
 										<td width="60" class="txt">性别</td>
 										<td class="txt2">女</td>
 										<td width="60" class="txt">地区</td>
-										<td class="txt2"><a href="">[苏州]</a></td>
+										<td class="txt2"><a href="">[${job.cityName }]</a></td>
 									</tr>
 									<tr>
 										<td width="60" class="txt">信誉</td>

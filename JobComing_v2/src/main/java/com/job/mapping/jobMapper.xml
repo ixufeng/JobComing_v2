@@ -14,7 +14,7 @@
 		<result column="end_time" property="endTime"/>
 		<result column="job_scribe" property="jobScribe"/>
 		<result column="is_validate" property="isValidate"/>
-		<result column="kind_name" property="kindName"/>
+		<result column="jobkind_name" property="kindName"/>
 		<result column="city_name" property="cityName"/>
 		<collection property="sendUser" javaType="com.job.bean.User">
 			<id column="user_id" property="userId"/>

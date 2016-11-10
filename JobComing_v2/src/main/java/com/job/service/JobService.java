@@ -18,4 +18,6 @@ public interface JobService {
 	public List<JobKind> getJobKinds();
 
 	public boolean addJob(Job job);
+	
+	public Job getJobById(int id); 
 }
