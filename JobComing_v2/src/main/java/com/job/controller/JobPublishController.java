@@ -34,5 +34,6 @@ public class JobPublishController {
 	public void initBinderTwo(WebDataBinder webDataBinder){
 		webDataBinder.registerCustomEditor(Date.class, "endTime",new DateEditor());;
 	}
+	
 
 }
