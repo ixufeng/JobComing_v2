@@ -48,10 +48,10 @@
 		</div>
 		<!-- Javascript -->
 		<script src="<c:url value='/js/jquery.js'/>"></script>
-		<script src="<c:url value='js/bootstrap.js'/>"></script>
-		<script src="<c:url value='js/jquery.backstretch.min.js'/>"></script>
-		<script src="<c:url value='js/login_register.js'/>"></script>
-		<script src="<c:url value='js/login_validate.js'/>"></script>
-		<script src="<c:url value='http://static.geetest.com/static/tools/gt.js'/>"></script>
+		<script src="<c:url value='/js/bootstrap.js'/>"></script>
+		<script src="<c:url value='/js/jquery.backstretch.min.js'/>"></script>
+		<script src="<c:url value='/js/login_register.js'/>"></script>
+		<script src="<c:url value='/js/login_validate.js'/>"></script>
+		<script src="http://static.geetest.com/static/tools/gt.js"></script>
 	</body>
 </html>

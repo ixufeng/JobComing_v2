@@ -2,7 +2,7 @@
 jQuery(document).ready(function() {
 	
 	//背景图片
-    $.backstretch("img/1.jpg");
+    $.backstretch("../img/1.jpg");
     
  	//渐入动画
     $('.registration-form fieldset:first-child').fadeIn('slow');

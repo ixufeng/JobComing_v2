@@ -14,6 +14,11 @@ import com.job.service.UserService;
 public class UserController {
 	@Autowired
 	private UserService uService;
+	/**
+	 * 登录
+	 * @param u
+	 * @return
+	 */
 	@RequestMapping("/login")
 	public ModelAndView login(User u){
 		if(uService.login(u)){
@@ -21,10 +26,20 @@ public class UserController {
 		}
 		return new ModelAndView("login");
 	}
-	
+	/**
+	 * 注册
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping("/register")
+	public ModelAndView register(User user){
+		if(uService.register(user)){
+			return new ModelAndView("login");
+		}
+		return new ModelAndView("register");
+	}
 	@RequestMapping("/index")
 	public ModelAndView index(){
-		System.out.println(111);
-		return new ModelAndView("login");
+		return new ModelAndView("jobpublish");
 	}
 }

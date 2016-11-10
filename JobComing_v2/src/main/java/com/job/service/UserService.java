@@ -9,8 +9,10 @@ public interface UserService {
 	 * @return
 	 */
 	public boolean login(User u);
-	
+	/**
+	 * 用户注册
+	 * @param u
+	 * @return
+	 */
 	public boolean register(User u);
-	
-	
 }

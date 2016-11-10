@@ -1,4 +1,4 @@
-package com.job.serviceImpI;
+package com.job.serviceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class AddressServiceImpI {
 	@Autowired
 	private TownDao townDao;
 	/**
-	 * »ñµÃËùÓÐµÄÊ¡·Ý¼¯ºÏ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ê¡ï¿½Ý¼ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	public List<AddressProvince> getAllProvince(){
@@ -31,7 +31,7 @@ public class AddressServiceImpI {
 		return list;
 	}
 	/**
-	 * »ñµÃËùÓÐµÄ³ÇÊÐ¼¯ºÏ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ³ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	public List<AddressCity> getAllCity(){
@@ -40,7 +40,7 @@ public class AddressServiceImpI {
 		return list;
 	}
 	/**
-	 * »ñµÃËùÓÐµÄÇøÏØ¼¯ºÏ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	public List<AddressTown> getAllTown(){
@@ -49,7 +49,7 @@ public class AddressServiceImpI {
 		return list;
 	}
 	/**
-	 * ¸ù¾Ý³ÇÊÐÃû³Æ·µ»Ø³ÇÊÐ¶ÔÏó
+	 * ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½Ø³ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½
 	 * @param cityName
 	 * @return
 	 */
@@ -59,7 +59,7 @@ public class AddressServiceImpI {
 		return addressCity;
 	}
 	/**
-	 * ¸ù¾Ý³ÇÊÐ±àÂë·µ»Ø³ÇÊÐ¶ÔÏó
+	 * ï¿½ï¿½ï¿½Ý³ï¿½ï¿½Ð±ï¿½ï¿½ë·µï¿½Ø³ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½
 	 * @param cityCode
 	 * @return
 	 */

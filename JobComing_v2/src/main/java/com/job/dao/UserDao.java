@@ -8,38 +8,38 @@ import com.job.bean.User;
 
 public interface UserDao {
 	/**
-	 * ¸ù¾İÓÃ»§idÀ´²éÑ¯Ò»¸ö¼òµ¥µÄuserId
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½idï¿½ï¿½ï¿½ï¿½Ñ¯Ò»ï¿½ï¿½ï¿½òµ¥µï¿½userId
 	 * @param userId
 	 * @return
 	 */
 	public User getUserByUserId(int userId);
 
 	/**
-	 * ¸ù¾İÓÃ»§ÃûÀ´·µ»ØÒ»¸ö¼òµ¥µÄÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½òµ¥µï¿½ï¿½Ã»ï¿½
 	 * @param userName
 	 */
 	public User getUserByUserName(@Param("userName")String userName);
 	
 	/**
-	 * ¸üĞÂÓÃ»§Í·Ïñ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Í·ï¿½ï¿½
 	 * @param avatar
 	 */
 	public void updateUserAvatar(@Param("userId")int userId,@Param("userAvatar") String userAvatar);
 	
 	/**
-	 * ¸üĞÂÓÃ»§»ı·Ö
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param score
 	 */
 	public void updateUserScore(int score);
 	
 	/**
-	 * ¸üĞÂÓÃ»§²ÎÊı
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param user
 	 */
 	public void updateUser(User user);
 	
 	/**
-	 * Ìí¼ÓÒ»¸öÓÃ»§
+	 * ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ã»ï¿½
 	 * @param user
 	 */
 	
@@ -47,7 +47,7 @@ public interface UserDao {
 	
 	
 	/**
-	 * ²éÕÒÓÃ»§¹Ø×¢µÄÈË
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½
 	 * @param userId
 	 * @return
 	 */
@@ -55,12 +55,22 @@ public interface UserDao {
 	
 	
 	/**
-	 * ²éÕÒ¹Ø×¢×Ô¼ºµÄÈË
+	 * ï¿½ï¿½ï¿½Ò¹ï¿½×¢ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param userId
 	 * @return
 	 */
 	public List<User> getFancyUser(@Param("userId") int userId);
-	
-	
+	/**
+	 * é€šè¿‡é‚®ç®±æŸ¥æ‰¾ç”¨æˆ·
+	 * @param email
+	 * @return
+	 */
+	public User getUserByEmail(String email);
+	/**
+	 * é€šè¿‡ç”µè¯æŸ¥æ‰¾ç”¨æˆ·
+	 * @param phone
+	 * @return
+	 */
+	public User getUserByPhone(long phone);
 	
 }
