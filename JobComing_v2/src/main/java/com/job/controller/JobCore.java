@@ -123,6 +123,7 @@ public class JobCore {
 		User u = session.getAttribute("loginUser")==null?null:(User)session.getAttribute("loginUser");
 		if(u!=null){
 			Job job = this.jobService.getJobById(jobId);
+			System.out.println(u.getUserId());
 			if(job!=null){
 				if(job.getSendUser().getUserId()==u.getUserId()){
 					
