@@ -19,7 +19,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.job.bean.Job;
 import com.job.bean.JobKind;
 import com.job.bean.SearchMap;
+import com.job.bean.User;
 import com.job.service.JobService;
+import com.job.serviceImpl.MailServiceImpl;
 import com.job.utils.TimeUtils;
 
 /**
@@ -37,6 +39,7 @@ public class JobCore {
 	
 	@Autowired
 	private HttpSession session;
+	
 	
 	
 	@RequestMapping("/jobs")
@@ -115,5 +118,28 @@ public class JobCore {
 		return mv;
 	}
 	
-
+	@RequestMapping("ajax_jobMail")
+	public @ResponseBody String jobMail(@RequestParam int jobId){
+		User u = session.getAttribute("loginUser")==null?null:(User)session.getAttribute("loginUser");
+		if(u!=null){
+			Job job = this.jobService.getJobById(jobId);
+			if(job!=null){
+				if(job.getSendUser().getUserId()==u.getUserId()){
+					
+					return "selfJob";
+				}else{
+					//发送邮件
+					boolean bol = MailServiceImpl.applyForJobMail(job.getSendUser().getEmail(), u, job);
+					if(bol)return "success";
+				}
+				
+			}else{
+				return "invalidJob";
+			}
+		}else{
+			
+			return "unlogin";
+		}
+		return "faliure";
+	}
 }

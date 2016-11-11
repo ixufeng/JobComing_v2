@@ -166,7 +166,7 @@
 												</span>
 											</td>
 											<td width="60" valign="top" class="hidden-xs" style="position: relative;">
-												<a href="#" class="count_livid" style="float:right;margin-right: 10px; font-size: 25px;" data-pre="0">
+												<a class="count_livid send-email" style="float:right;margin-right: 10px; font-size: 25px;" data-url="" data-job="${job.jobId}" data-pre="0">
 													<span class="glyphicon glyphicon-envelope"></span>
 												</a>
 												<div class="clearfix"></div>
@@ -306,6 +306,9 @@
 					console.log("error");
 				}
 			});
+
+
+			
 			
 			
 		</script>

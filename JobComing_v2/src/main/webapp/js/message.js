@@ -45,3 +45,50 @@ goEasy.subscribe({
       
   }
 });
+
+//发送邮件
+$(".send-email").click(function(){
+	var data = $(this).attr("data-pre");
+	var url = $(this).attr("data-url") + "ajax_jobMail";
+	var jobId = $(this).attr("data-job");
+	var om = $(this);
+	//没有预约过
+	if(data=="0"){
+		$.ajax({
+			url:url,
+			data:{"jobId":jobId},
+			dataType:"text",
+			success:function(data){
+				if(data=="success"){
+					alert("预约成功！");
+					om.css("color","#ccc");
+					
+				}
+				if(data=="selfJob"){
+					//自己发布的工作
+					alert("不能预约自己的工作！");
+					
+				}
+				if(data=="unlogin"){
+					alert("请先登录！");
+				}
+				if(data=="invalidJob"){
+					alert("该工作已无效！");
+				}
+				if(data=="faliure"){
+					alert("发送邮件失败");
+				}
+			},
+			
+			error:function(data){
+				
+			}
+			
+		});
+	}
+	
+	
+});
+
+
+
