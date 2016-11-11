@@ -21,10 +21,20 @@
 			<a href=""><em>JobComing~</em></a>
 		</div>
 		<header class="site-header jumbotron">
-			<div class="site-nav">
-				<a href="">登录</a> <span>/</span>
-				<a href="">注册</a>
-			</div>
+			<c:choose>
+		  	<c:when test="${empty loginUser}">
+				<div class="site-nav"> 
+					<a href="user/goLogin">登录</a> <span>/</span>
+					<a href="user/goRegister">注册</a>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div class="site-nav">
+					<a href="user/goUser">${loginUser.userName}</a> <span>/</span>
+					<a href="user/goJobPublish">发布兼职</a>
+				</div>
+			</c:otherwise>
+		  </c:choose>
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12">
@@ -45,6 +55,7 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">
             					闲着无聊做做兼职--JobComing
+            					<a href="jobs" style="float: right;display: inline-block;color:green">首页</a>
         					</h3>
 						</div>
 						<div class="panel-body">
@@ -56,25 +67,32 @@
 										<td width="60" class="txt">开始</td>
 										<td class="txt2">${job.beginTime }</td>
 										<td rowspan="4" width="90" class="hidden-xs">
-											<img src="img/public.png" style="width: 80px;height: 90px;" class="img-thumbnail img-responsive" />
+											<c:choose>
+												  <c:when test="${ empty job.sendUser.avatar}">
+												  	   <img src="<c:url value='/img/public.png'/>" style="width: 80px;height: 90px;" class="img-thumbnail img-responsive">
+												  </c:when>
+												  <c:otherwise>
+												      <img src="${job.sendUser.avatar}" style="width: 80px;height: 90px;" class="img-thumbnail img-responsive">
+												   </c:otherwise>
+												</c:choose>
 										</td>
 									</tr>
 									<tr>
 										<td width="60" class="txt">发布者</td>
 										<td class="txt2">${job.sendUser.userName }</td>
 										<td width="60" class="txt">结束</td>
-										<td class="txt2">03/08</td>
+										<td class="txt2">${job.endTime}</td>
 									</tr>
 									<tr>
 										<td width="60" class="txt">性别</td>
-										<td class="txt2">女</td>
+										<td class="txt2">${job.sendUser.sex}</td>
 										<td width="60" class="txt">地区</td>
 										<td class="txt2"><a href="">[${job.cityName }]</a></td>
 									</tr>
 									<tr>
 										<td width="60" class="txt">信誉</td>
-										<td class="txt2">90%</td>
-										<td width="60" class="txt">详细</td>
+										<td class="txt2">${job.sendUser.score}%</td>
+										<td width="60" class="txt">地址</td>
 										<td class="txt2"><a id="show">[查看]</a></td>
 									</tr>
 								</tbody>
@@ -83,13 +101,13 @@
 								<a href="#" class="close">
 									&times;
 								</a>
-								<strong>苏州市长兴中路8号大学城</strong>
+								<strong>${job.detailAddr}</strong>
 							</div>
 							<h5 class="desc">
 								<span class="glyphicon glyphicon-file"></span>
 								兼&nbsp;职&nbsp;描&nbsp;述
 							</h5>
-							<p>苏州市张家港长兴中路8号大学城实验室需要三个人打扫卫生每小时12元</p>
+							<p>${job.jobScribe}</p>
 							<h5 class="desc">
 								<span class="glyphicon glyphicon-phone"></span>
 								联&nbsp;系&nbsp;方&nbsp;式
@@ -99,7 +117,9 @@
 								<a href="#" class="close close2">
 									&times;
 								</a>
-								<strong>该发布者没有留下电话号码</strong>
+								<strong>联系电话：${job.sendUser.phone }</strong><br />
+								<strong>电子邮件：${job.sendUser.email }</strong>
+								
 							</div>
 						
 							<div style="margin-top: 30px;">

@@ -65,22 +65,22 @@
 			<div class="row">
 				<div class="col-md-2 myinfo visible-lg visible-md">
 					<div class="list-group">
-						<a href="goUser" class="list-group-item active">我的信息</a>
-						<a href="goTogether" class="list-group-item">参与记录</a>
-						<a href="goPublish" class="list-group-item">分享记录</a>
+						<a href="" class="list-group-item active">我的信息</a>
+						<a href="../jobRecord/together" class="list-group-item">参与记录</a>
+						<a href="../jobRecord/jobPublish" class="list-group-item">分享记录</a>
 						<a href="../jobs" class="list-group-item">返回首页</a>
 					</div>
 				</div>
 				<div class="col-md-10 myinfo">
 					<ul class="nav nav-tabs">
 						<li class="active bar">
-							<a href="goUser">我的信息</a>
+							<a href="">我的信息</a>
 						</li>
 						<li class="bar">
-							<a href="goTogether">参与记录</a>
+							<a href="../jobRecord/together">参与记录</a>
 						</li>
 						<li class="bar">
-							<a href="goPublish">分享记录</a>
+							<a href="../jobRecord/jobPublish">分享记录</a>
 						</li>
 					</ul>
 					<table class="table table1">
@@ -88,11 +88,11 @@
 							<tr>
 								<td>
 									<c:choose>
-									  <c:when test="${ empty sessionScope.user.headPicture}">
-									  	   <img src="img/public.png"style="width: 60px;height: 60px;" class="img-thumbnail">
+									  <c:when test="${ empty loginUser.avatar}">
+									  	   <img src="<c:url value='/img/public.png'/>" style="width: 60px;height: 60px;" class="img-thumbnail">
 									  </c:when>
 									  <c:otherwise>
-									      <img src="${sessionScope.user.headPicture}" style="width: 60px;height: 60px;" class="img-thumbnail">
+									      <img src="${loginUser.avatar}" style="width: 60px;height: 60px;" class="img-thumbnail">
 									   </c:otherwise>
 									</c:choose>
 								</td>
@@ -104,11 +104,11 @@
 							</tr>
 							<tr>
 								<td class="txt">用户昵称</td>
-								<td>${sessionScope.user.userName}</td>
+								<td>${loginUser.userName}</td>
 							</tr>
 							<tr>
 								<td class="txt">性别</td>
-								<td>${sessionScope.user.sex}</td>
+								<td>${loginUser.sex}</td>
 							</tr>
 							<tr>
 								<td class="txt">年龄</td>
@@ -116,15 +116,15 @@
 							</tr>
 							<tr>
 								<td class="txt">邮箱</td>
-								<td>${sessionScope.user.email}</td>
+								<td>${loginUser.email}</td>
 							</tr>
 							<tr>
 								<td class="txt">手机</td>
-								<td>${sessionScope.user.phone}</td>
+								<td>${loginUser.phone}</td>
 							</tr>
 							<tr>
 								<td class="txt">信誉</td>
-								<td>${sessionScope.user.score}</td>
+								<td>${loginUser.score}</td>
 							</tr>
 						</tbody>
 					</table>			
@@ -136,7 +136,7 @@
 		<div class="modal fade" id="modifyInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<form role="form" action="ModifyPersonServlet" method="post" class="login-form" enctype="multipart/form-data">
+					<form role="form" action="../upload/onload" method="post" class="login-form" enctype="multipart/form-data">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 							<h4 class="modal-title" id="myModalLabel">个人信息修改</h4>
@@ -144,15 +144,15 @@
 						<div class="modal-body">
 							<div class="form-group">
 								<label class="sr-only" for="form-username">Username</label>
-								<input type="text" name="username" value="${sessionScope.user.userName}" readonly="readonly" class="form-username form-control" id="form-username">
+								<input type="text" name="username" value="${loginUser.userName}" readonly="readonly" class="form-username form-control" id="form-username">
 							</div>
 							<div class="form-group">
 								<label class="sr-only" for="form-email">Email</label>
-								<input type="text" name="email" value="${sessionScope.user.email}" readonly="readonly" class="form-username form-control" id="form-email">
+								<input type="text" name="email" value="${loginUser.email}" readonly="readonly" class="form-username form-control" id="form-email">
 							</div>
 							<div class="form-group">
 								<label class="sr-only" for="form-phone">Phone</label>
-								<input type="text" name="email" value="${sessionScope.user.phone}" readonly="readonly" class="form-username form-control" id="form-email">
+								<input type="text" name="email" value="${loginUser.phone}" readonly="readonly" class="form-username form-control" id="form-email">
 							</div>
 							<div class="form-group">
 								<label class="control-label">头像选择</label>

@@ -23,7 +23,7 @@ public class UserAjaxController {
 	public String userIsExist(@RequestParam("username")String userName){
 		User user=rs.getUserByName(userName);
 		if(user!=null){
-			return "用户名已存在";
+			return "the name is exist";
 		}
 		return null;
 	}
@@ -37,7 +37,7 @@ public class UserAjaxController {
 	public String emailIsExit(@RequestParam("email") String email){
 		User user=rs.getUserByEmail(email);
 		if(user!=null){
-			return "邮箱已经存在";
+			return "the email is exist";
 		}
 		return null;
 	}
@@ -46,7 +46,7 @@ public class UserAjaxController {
 	public String phoneIsExist(@RequestParam("phone") long phone){
 		User user=rs.getUserByPhone(phone);
 		if(user!=null){
-			return "手机已经存在";
+			return "the phone is exist";
 		}
 		return null;
 	}

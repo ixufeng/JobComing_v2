@@ -3,7 +3,7 @@ package com.job.bean;
 import java.util.Date;
 
 /**
- * 协议实体
+ * 协锟斤拷实锟斤拷
  * @author xufeng
  *
  */
@@ -14,6 +14,8 @@ public class Agreement {
 	private int status;
 	private Date completeTime;
 	private String jobName;
+	private Job job;
+	private User user;
 	public int getAgreementId() {
 		return agreementId;
 	}
@@ -49,6 +51,18 @@ public class Agreement {
 	}
 	public void setJobName(String jobName) {
 		this.jobName = jobName;
+	}
+	public Job getJob() {
+		return job;
+	}
+	public void setJob(Job job) {
+		this.job = job;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }

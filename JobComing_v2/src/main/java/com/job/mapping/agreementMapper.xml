@@ -8,6 +8,31 @@
 		<result property="userId" column="user_id"/>
 		<result property="status" column="status"/>
 		<result property="completeTime" column="complete_time"/>
+			<collection property="user" javaType="com.job.bean.User">
+				<id column="user_id" property="userId"/>
+				<result column="user_name" property="userName"/>
+				<result column="password" property="password"/>
+				<result column="true_name" property="trueName"/>
+				<result column="birthday" property="birthday"/>
+				<result column="avatar" property="avatar"/>
+				<result column="sex" property="sex"/>
+				<result column="phone" property="phone"/>
+				<result column="email" property="email"/>
+				<result column="score" property="score"/>
+				<result column="identify_code" property="identifyCode"/>
+			</collection>
+			<collection property="job" javaType="com.job.bean.Job">
+				<id column="job_id" property="jobId"/>
+				<result column="user_id" property="userId"/>
+				<result column="jobkind_id" property="jobKindId"/>
+				<result column="job_time" property="jobTime"/>
+				<result column="addr_number" property="addrNumber"/>
+				<result column="detail_addr" property="detailAddr"/>
+				<result column="begin_time" property="beginTime"/>
+				<result column="end_time" property="endTime"/>
+				<result column="job_scribe" property="jobScribe"/>
+				<result column="is_validate" property="isValidate"/>
+			</collection>
 	</resultMap>
 	
 	<!--通过协议对象插入协议表 -->
@@ -27,6 +52,6 @@
 	
 	<!-- 通过用户id返回所有协议记录 -->
 	<select id="getAgreeListByUserId" resultMap="agreement" parameterType="int">
-		select * from agreement where user_id=#{userId}
+		select * from agreement,job,user where agreement.user_id=#{userId} and agreement.job_id=job.job_id and user.user_id=#{userId}
 	</select>
 </mapper>	
