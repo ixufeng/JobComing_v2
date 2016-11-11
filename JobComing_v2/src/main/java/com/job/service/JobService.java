@@ -28,6 +28,10 @@ public interface JobService {
 	 * @return
 	 */
 	public boolean addJob(Job job);
-	
-	public Job getJobById(int id); 
+	/**
+	 * 通过用户id返回发布集合
+	 * @param userId
+	 * @return
+	 */
+	public List<Job> getJobListByUserId(int userId);
 }

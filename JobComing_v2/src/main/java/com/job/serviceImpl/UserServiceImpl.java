@@ -8,7 +8,7 @@ import com.job.dao.UserDao;
 import com.job.service.UserService;
 
 /**
- * 用户服务类
+ * 鐢ㄦ埛鏈嶅姟绫�
  * @author xufeng
  *
  */
@@ -19,27 +19,32 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 	
 	@Override
-	public boolean login(User u) {
+	public User login(User u) {
 		
 		if(u==null||u.getUserName()==null||u.getPassword()==null)
-			return false;
+			return null;
 		
 		User user = userDao.getUserByUserName(u.getUserName());
 		if(user!=null){
 			if(user.getPassword().equals(u.getPassword())){
-				return true;
+				return user;
 			}
 		}
 		
-		
-		return false;
+	
+		return null;
 	}
 
 	@Override
 	public boolean register(User u) {
-		if(userDao.addUser(u)){
-			return true;
+		if(u!=null){
+			if(userDao.addUser(u)){
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			return false;
 		}
-		return false;
 	}
 }

@@ -71,7 +71,7 @@
 								<a href="">成都</a>
 								<a href="">苏州</a>
 								<a href="">长沙</a>
-								<a href="city.html" style="float: right;">更多<i class="caret"></i></a>
+								<a href="user/goMore" style="float: right;">更多<i class="caret"></i></a>
 							</div>
 							<div class="sep5" style="height: 20px;"></div>
 							<div id="job-kind-name">
@@ -118,9 +118,14 @@
 									<tbody>
 										<tr>
 											<td width="55" valign="top" align="center">
-												<a href="#">
-													<img src="<c:url value='/img/public.png'/>" style="width: 55px; height: 55px;" class="img-responsive img-rounded" border="0">
-												</a>
+												<c:choose>
+												  <c:when test="${ empty job.sendUser.avatar}">
+												  	   <img src="<c:url value='/img/public.png'/>" style="width: 55px; height: 55px;" class="img-responsive img-rounded" border="0">
+												  </c:when>
+												  <c:otherwise>
+												      <img src="${job.sendUser.avatar}" style="width: 55px; height: 55px;" class="img-responsive img-rounded" border="0">
+												   </c:otherwise>
+												</c:choose>
 											</td>
 											<td width="10"></td>
 											<td width="auto" valign="middle">

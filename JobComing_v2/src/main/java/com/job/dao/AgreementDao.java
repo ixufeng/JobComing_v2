@@ -8,28 +8,29 @@ import com.job.bean.Agreement;
 
 public interface AgreementDao {
 	/**
-	 * Í¨¹ıĞ­Òé¶ÔÏó²åÈëĞ­Òé±í
+	 * Í¨ï¿½ï¿½Ğ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ­ï¿½ï¿½ï¿½
 	 * @param agreement
 	 */
 	public void insert(Agreement agreement);
 	/**
-	 * Í¨¹ıĞ­Òé±àºÅÉ¾³ı¼ÇÂ¼
+	 * Í¨ï¿½ï¿½Ğ­ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½Â¼
 	 * @param agreementId
 	 */
 	public void delete(int agreementId);
 	/**
-	 * Í¨¹ıĞ­Òé±àºÅ¸ü¸ÄĞ­Òé×´Ì¬
+	 * Í¨ï¿½ï¿½Ğ­ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½Ğ­ï¿½ï¿½×´Ì¬
 	 * @param agreementId
 	 * @param status
 	 */
 	public void update(@Param("agreementId")int agreementId,@Param("status")int status);
 	/**
-	 * Í¨¹ıĞ­Òé±àºÅ·µ»ØÒ»¸öĞ­Òé¶ÔÏó
+	 * Í¨ï¿½ï¿½Ğ­ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ğ­ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param agreementId
+	 * @return 
 	 */
-	public void getAgreementById(int agreementId);
+	public Agreement getAgreementById(int agreementId);
 	/**
-	 * Í¨¹ıÓÃ»§id·µ»ØËùÓĞĞ­Òé¼ÇÂ¼
+	 * Í¨ï¿½ï¿½ï¿½Ã»ï¿½idï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ­ï¿½ï¿½ï¿½Â¼
 	 * @param userId
 	 * @return
 	 */

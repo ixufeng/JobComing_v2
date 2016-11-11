@@ -20,7 +20,6 @@ public class Job {
 	private User sendUser;  //发布兼职的人
 	private String cityName; //发布的城市
 	private String kindName; //发布兼职的种类名称
-	
 	public String getKindName() {
 		return kindName;
 	}

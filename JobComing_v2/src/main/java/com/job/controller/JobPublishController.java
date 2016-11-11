@@ -24,16 +24,17 @@ public class JobPublishController {
 	 * @param job
 	 * @return
 	 */
+	@Autowired
 	private JobService jobService;
 	@Autowired
 	private HttpSession session;
 	@RequestMapping(value="/submitJob",method=RequestMethod.POST)
 	public ModelAndView jobPublish( Job job){
-		
 		ModelAndView mv = new ModelAndView();
 		Object objUser = session.getAttribute("loginUser");
 		if(objUser!=null){
 			User u = (User) objUser;
+			job.setJobTime(new Date());
 			job.setUserId(u.getUserId());
 			if(jobService.addJob(job)){
 				mv.setViewName("redirect:../jobs");
