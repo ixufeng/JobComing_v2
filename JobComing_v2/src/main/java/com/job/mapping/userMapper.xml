@@ -11,7 +11,7 @@
 		<result column="birthday" property="birthday"/>
 		<result column="avatar" property="avatar"/>
 		<result column="sex" property="sex"/>
-		<result column="phone" property="sex"/>
+		<result column="phone" property="phone"/>
 		<result column="email" property="email"/>
 		<result column="score" property="score"/>
 		<result column="identify_code" property="identifyCode"/>

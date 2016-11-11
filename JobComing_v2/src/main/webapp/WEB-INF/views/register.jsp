@@ -66,7 +66,7 @@
 								</div>
 								<div class="form-group" style="margin-bottom: 25px;">
 									<label class="mlabel"></label>
-									<input type="text" name="tureName" placeholder="真实姓名" class="form-control" id="register_realname">
+									<input type="text" name="trueName" placeholder="真实姓名" class="form-control" id="register_realname">
 								</div>
 								<button type="button" class="btn btn-previous">上一步</button>
 								<button type="button" class="btn btn-next">下一步</button>

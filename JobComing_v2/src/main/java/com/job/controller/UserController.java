@@ -1,11 +1,17 @@
 package com.job.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -15,6 +21,7 @@ import com.job.bean.Job;
 import com.job.bean.User;
 import com.job.service.JobService;
 import com.job.service.UserService;
+import com.job.utils.DateEditor;
 @Controller
 @SessionAttributes("loginUser")
 @RequestMapping("/user")
@@ -23,6 +30,8 @@ public class UserController {
 	private UserService uService;
 	@Autowired
 	private JobService jobService;
+	@Autowired
+	private HttpSession session;
 	/**
 	 * 登录
 	 * @param u
@@ -30,8 +39,9 @@ public class UserController {
 	 */
 	@RequestMapping("/login")
 	public ModelAndView login(User u){
-		if(uService.login(u)){
-			return new ModelAndView("redirect:../jobs","loginUser",u);
+		User user=uService.login(u);
+		if(user!=null){
+			return new ModelAndView("redirect:../jobs","loginUser",user);
 		}
 		return new ModelAndView("login");
 	}
@@ -47,6 +57,10 @@ public class UserController {
 		}
 		return new ModelAndView("register");
 	}
+	@InitBinder
+	public void initBinder(WebDataBinder webDataBinder){
+		webDataBinder.registerCustomEditor(Date.class, "birthday",new DateEditor());;
+	}
 	@RequestMapping("/goLogin")
 	public ModelAndView gologin(){
 		return new ModelAndView("login");
@@ -57,7 +71,22 @@ public class UserController {
 	}
 	@RequestMapping("/goUser")
 	public ModelAndView goInfo1(){
-		return new ModelAndView("info1");
+		ModelAndView mv=new ModelAndView();
+		int age=Integer.parseInt(new SimpleDateFormat("yyyy").format(new Date()));
+		User user=(User) session.getAttribute("loginUser");
+		if(user!=null){
+			Date birth=user.getBirthday();
+			if(birth!=null){
+				mv.setViewName("info1");
+				age-=Integer.parseInt(new SimpleDateFormat("yyyy").format(birth));
+				mv.addObject("age", age);
+			}else{
+				mv.setViewName("redirect:../jobs");
+			}
+		}else{
+			mv.setViewName("redirect:../jobs");
+		}
+		return mv;
 	}
 	@RequestMapping("/goJobPublish")
 	public ModelAndView goJobPublish(){
