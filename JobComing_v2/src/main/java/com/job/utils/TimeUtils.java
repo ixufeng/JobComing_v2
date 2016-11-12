@@ -8,7 +8,7 @@ import java.util.Date;
 public class TimeUtils {
 
 	/**
-	 * 鑾峰彇褰撳墠绮剧‘鐨勬椂闂存埑,绮剧‘鍒扮
+	 * 
 	 */
 	public static long getCTimeStamp(){
 		
@@ -16,7 +16,7 @@ public class TimeUtils {
 	}
 	
 	/**
-	 * 鏃堕棿鎴宠浆鎹负鍏蜂綋鏃堕棿鏍煎紡
+	 * 
 	 * @param seconds
 	 * @param format
 	 * @return
@@ -31,7 +31,7 @@ public class TimeUtils {
 	 } 
 	
 	 /**
-	  * 鏍规嵁String鐨勬椂闂存潵杩斿洖榫欏瀷
+	  * 
 	  * @return
 	  */
 	 public static long timeStampLong(String time,String format){
@@ -61,7 +61,7 @@ public class TimeUtils {
 		 return time1;
 	 }
 	 /**
-	  *鑾峰彇褰撴棩鍑屾櫒鏃堕棿
+	  *
 	  * @return
 	  */
 	 public static  Date getTodayBeginDateTime(){
@@ -70,7 +70,7 @@ public class TimeUtils {
 	
 	 }
 	 /**
-	  * 鑾峰彇浠婂ぉ缁撴潫鏃堕棿
+	  * 
 	  * @return
 	  */
 	 public static Date getTodayEndDateTime(){
@@ -78,7 +78,7 @@ public class TimeUtils {
 		 return new Date(getTadayEndTime()*1000);
 	 }
 	/**
-	 * 浠婂ぉ缁撴潫鏃堕棿
+	 * 
 	 * @return
 	 */
 	 public static long getTadayEndTime(){
@@ -87,7 +87,7 @@ public class TimeUtils {
 	 }
 	 
 	 /**
-	  * 鏍煎紡鍖栨椂闂�
+	  * 
 	  * @return
 	  */
 	 public  static String formatDate(Date d,String format){
@@ -98,7 +98,7 @@ public class TimeUtils {
 		
 	 }
 	/**
-	 * string 杩斿洖date鍨�
+	 * string 
 	 * @param time
 	 * @return
 	 */
@@ -113,7 +113,7 @@ public class TimeUtils {
 		}
 	}
 	/**
-	 * 鏃堕棿
+	 * 
 	 * @param messageDate
 	 * @return
 	 */
@@ -147,5 +147,18 @@ public class TimeUtils {
 		}
 		return dateString;
 	}
+	/**
+	 * return the day of week and the first day is sunday represent by 1
+	 * @param date
+	 * @return
+	 */
+	public static int getWeek(Date date){
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		
+		return cal.get(Calendar.DAY_OF_WEEK);
+	}
+	
 	
 }

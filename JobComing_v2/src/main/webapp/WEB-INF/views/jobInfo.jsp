@@ -93,7 +93,7 @@
 							</div>
 						
 							<div style="margin-top: 30px;">
-								<a href="" class="btn btn-default btn-info">
+								<a data-pre="0" data-job="${job.jobId}" data-url="" class="btn btn-default btn-info send-email">
 									<span class="glyphicon glyphicon-envelope"></span>
 									邮件预约
 								</a>

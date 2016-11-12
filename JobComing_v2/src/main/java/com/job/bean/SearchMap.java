@@ -10,10 +10,16 @@ public class SearchMap {
 
 	private String userName;
 	private String cityName;
-	private String weekTime;
+	private int weekTime;
 	private String jobKindName;
 	
 	
+	public int getWeekTime() {
+		return weekTime;
+	}
+	public void setWeekTime(int weekTime) {
+		this.weekTime = weekTime;
+	}
 	public String getUserName() {
 		return userName;
 	}
@@ -26,13 +32,6 @@ public class SearchMap {
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
-	public String getWeekTime() {
-		return weekTime;
-	}
-	public void setWeekTime(String weekTime) {
-		this.weekTime = weekTime;
-	}
-	
 	public String getJobKindName() {
 		return jobKindName;
 	}
@@ -56,7 +55,7 @@ public class SearchMap {
 			map.put("cityName", null);
 		}
 			
-		if(this.weekTime!=null&&!this.weekTime.equals("")){
+		if(this.weekTime!=0&&this.weekTime!=0){
 			map.put("weekTime", this.weekTime);
 		}
 		if("-1".equals(this.weekTime)){

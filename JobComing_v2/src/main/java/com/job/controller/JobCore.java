@@ -119,7 +119,7 @@ public class JobCore {
 		return mv;
 	}
 	/**
-	 * 閭欢棰勭害鍏艰亴
+	 *发送求职邮件
 	 * @param jobId
 	 * @return
 	 */

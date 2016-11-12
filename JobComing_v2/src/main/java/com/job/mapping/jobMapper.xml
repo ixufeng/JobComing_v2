@@ -68,10 +68,11 @@
 			<if test="jobTime!=null">
 				and job_time >=#{jobTime}
 			</if>
+			order by job_time desc
 			<if test="beginIndex!=null and lastIndex!=null">
 				limit #{beginIndex},#{lastIndex}
 			</if>
-			<if test="beginIndex==null and lastIndex==null">
+			<if test="beginIndex==null and lastIndex==null and pageSize!=null">
 				limit #{pageSize}
 			</if>	
 			

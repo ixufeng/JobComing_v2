@@ -21,16 +21,16 @@
 						<div>
 							<div id="city-name">
 								<span>兼职地点：</span>
-								<a class="city active" href="jobs?cityName=-1" data-name="全国">全国</a>
+								<a class="city active"  href="jobs?cityName=-1" data-name="全国">全国</a>
 								<a class="active city" href="jobs?cityName=南京" data-name="南京">南京</a>
-								<a href="">杭州</a>
-								<a href="">上海</a>
-								<a href="">北京</a>
-								<a href="">深圳</a>
-								<a href="">广州</a>
-								<a href="">成都</a>
-								<a href="">苏州</a>
-								<a href="">长沙</a>
+								<a class="active city" href="jobs?cityName=杭州" data-name='杭州'>杭州</a>
+								<a class="active city" href="jobs?cityName=上海" data-name="上海">上海</a>
+								<a class="active city" href="jobs?cityName=北京" data-name='北京'>北京</a>
+								<a class="active city" href="jobs?cityName=深圳" data-name='深圳'>深圳</a>
+								<a class="active city" href="jobs?cityName=广州" data-name='广州'>广州</a>
+								<a class="active city" href="jobs?cityName=成都" data-name='成都'>成都</a>
+								<a class="active city" href="jobs?cityName=苏州" data-name='苏州'>苏州</a>
+								<a class="active city" href="jobs?cityName=长沙" data-name='长沙'>长沙</a>
 								<a href="user/goMore" style="float: right;">更多<i class="caret"></i></a>
 							</div>
 							<div class="sep5" style="height: 20px;"></div>
@@ -44,14 +44,14 @@
 							<div class="sep5" style="height: 20px;"></div>
 							<div id="week-time">							
 								<span>开始时间：</span>
-								<a href="jobs?weekTime=-1"  data-name="不限"class="active week-time" >不限</a>
-								<a href="jobs?weekTime=周一" data-name="周一" class="active week-time">周一</a>
-								<a href="jobs?weekTime=周二" data-name="周二" class="active week-time">周二</a>
-								<a href="jobs?weekTime=周三" data-name="周三" class="active week-time">周三</a>
-								<a href="jobs?weekTime=周四" data-name="周四" class="active week-time">周四</a>
-								<a href="jobs?weekTime=周五" data-name="周五" class="active week-time">周五</a>
-								<a href="jobs?weekTime=周六" data-name="周六" class="active week-time">周六</a>
-								<a href="jobs?weekTime=周日" data-name="周日" class="active week-time">周日</a>
+								<a href="jobs?weekTime=-1"  data-name="-1"class="active week-time" >不限</a>
+								<a href="jobs?weekTime=2" data-name="2" class="active week-time">周一</a>
+								<a href="jobs?weekTime=3" data-name="3" class="active week-time">周二</a>
+								<a href="jobs?weekTime=4" data-name="4" class="active week-time">周三</a>
+								<a href="jobs?weekTime=5" data-name="5" class="active week-time">周四</a>
+								<a href="jobs?weekTime=6" data-name="6" class="active week-time">周五</a>
+								<a href="jobs?weekTime=7" data-name="7" class="active week-time">周六</a>
+								<a href="jobs?weekTime=1" data-name="1" class="active week-time">周日</a>
 							</div>
 						</div>
 					</div>
@@ -197,7 +197,7 @@
 						$(".week-time[data-name='"+weekTime+"']").addClass("ser-kind");
 						
 					}else{
-						$(".week-time[data-name='不限']").addClass("ser-kind");
+						$(".week-time[data-name='-1']").addClass("ser-kind");
 					}
 
 					if(data.jobKindName!=null){
