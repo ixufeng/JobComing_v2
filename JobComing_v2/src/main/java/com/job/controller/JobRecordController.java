@@ -41,7 +41,6 @@ public class JobRecordController {
 				allPage=list.size()/5+1;
 			}
 			List<Job> list2=js.getJobListByUserId(user.getUserId(),5*(index-1),5*index);
-			System.out.println(list2.size());
 			mv.setViewName("info3");
 			mv.addObject("allpage", allPage);
 			mv.addObject("index", index);

@@ -12,6 +12,7 @@
 	</head>
 	
 	<body class="home-template">
+
 		<jsp:include page="/WEB-INF/components/head.jsp"></jsp:include>
 		<div class="container" style="margin-top: 30px;">
 			<div class="row">

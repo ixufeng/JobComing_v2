@@ -1,7 +1,7 @@
 $(".search").keyup(function(){
 				$.ajax({
 					type:"post",
-					url:"search",
+					url:"searchJob/search",
 					data:{searchName:$(".search").val()},
 					success:function(data){
 						$("#hide-info").html("");
