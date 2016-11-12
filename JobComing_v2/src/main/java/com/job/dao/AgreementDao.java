@@ -34,6 +34,7 @@ public interface AgreementDao {
 	 * @param userId
 	 * @return
 	 */
+
 	public List<Agreement> getAgreeListByUserId(int userId);
 	
 	/**
@@ -41,4 +42,7 @@ public interface AgreementDao {
 	 * @return
 	 */
 	public Agreement getAgreeByUserIdAndJId(@Param("userId") int userId,@Param("jobId") int jobId);
+
+	public List<Agreement> getAgreeListByUserId(@Param("userId")int userId,@Param("beginIndex")int beginIndex,@Param("endIndex")int endIndex);
+
 }

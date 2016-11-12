@@ -20,7 +20,7 @@ public interface JobDao {
 	 * @param userId
 	 * @return
 	 */
-	public List<Job> getJobsByUserId(@Param("userId") int userId);
+	public List<Job> getJobsByUserId(@Param("userId") int userId,@Param("beginIndex")int beginIndex,@Param("endIndex")int endIndex);
 	
 	/**
 	 * 综合查找兼职  工作地点 , 发布人姓名 ，工作种类

@@ -13,6 +13,7 @@
 		<link href="css/site.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/main.css" />
 		<link rel="stylesheet" href="css/jobInfo.css" />
+		<script type="text/javascript" src="js/map.js"></script>
 		<link rel="shortcut icon" href="img/favicon.png">
 	</head>
 
@@ -217,6 +218,19 @@
 					        	</a>
 					        </li>
 					    </ul>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<span class="glyphicon glyphicon-map-marker"></span>&nbsp;导&nbsp;航
+						</div>
+						<div class="panel-body" id="map" style="min-height:300px;">
+							<script type="text/javascript">
+								ShowMap("map", {
+									city: '${job.cityName }',
+									addr: '${job.detailAddr}'
+								});
+							</script>	
+						</div>
 					</div>
 				</div>
 			</div>

@@ -1,7 +1,7 @@
 $(".search").keyup(function(){
 				$.ajax({
 					type:"post",
-					url:"KeyWordServlet",
+					url:"search",
 					data:{searchName:$(".search").val()},
 					success:function(data){
 						$("#hide-info").html("");

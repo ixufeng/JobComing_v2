@@ -33,5 +33,5 @@ public interface JobService {
 	 * @param userId
 	 * @return
 	 */
-	public List<Job> getJobListByUserId(int userId);
+	public List<Job> getJobListByUserId(int userId,int beginIndex,int endIndex);
 }
