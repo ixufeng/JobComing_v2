@@ -163,9 +163,11 @@
 		<jsp:include page="/WEB-INF/components/bullet.jsp"></jsp:include>
 		
 		<iframe id="webchat7moor" src="chat.html" style="display: none; margin: 0px; padding: 0px; width: 320px; height: 542px; border-width: 0px; border-radius: 3px; transition: height 0.5s ease-out; z-index: 99999; bottom: 0px; right: 0px; position: fixed;"></iframe>
+
 		<script type="text/javascript" src="<c:url value='/js/jquery.barrager.js'/>"></script>
 		<script type="text/javascript" src="<c:url value='/js/message.js'/>"></script>
 		<script src="<c:url value='/js/search.js'/>"></script>
+
 
 		<script>
 			$(".fb-icon").click(function(){
