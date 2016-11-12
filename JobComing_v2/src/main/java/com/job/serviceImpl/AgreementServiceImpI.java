@@ -14,9 +14,9 @@ import com.job.service.AgreementService;
 public class AgreementServiceImpI implements AgreementService {
 	@Autowired
 	private AgreementDao agreementDao;
-	public List<Agreement> getAgreeListByUser(int userId){
+	public List<Agreement> getAgreeListByUser(int userId,int beginIndex,int endIndex){
 		List<Agreement> list=new ArrayList<Agreement>();
-		list=agreementDao.getAgreeListByUserId(userId);
+		list=agreementDao.getAgreeListByUserId(userId,beginIndex,endIndex);
 		return list;
 	}
 	@Override

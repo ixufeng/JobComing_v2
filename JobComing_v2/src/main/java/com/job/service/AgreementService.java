@@ -29,6 +29,6 @@ public interface AgreementService {
 	 * @param userId
 	 * @return
 	 */
-	public List<Agreement> getAgreeListByUser(int userId);
+	public List<Agreement> getAgreeListByUser(int userId,int beginIndex,int endIndex);
 	
 }

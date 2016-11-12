@@ -44,7 +44,10 @@
 		select * from job,user,addresscity,jobkind where job.user_id = #{userId}
 			and job.user_id=user.user_id 
 			and job.addr_number=addresscity.city_code
-			and job.jobkind_id=jobkind.jobkind_id;
+			and job.jobkind_id=jobkind.jobkind_id
+			<if test="beginIndex!=-1 and endIndex!=-1">
+				limit #{beginIndex},#{endIndex}
+			</if>
 	</select>
 	
 	<!-- 综合查找兼职  工作地点 , 发布人姓名 ，工作种类 -->

@@ -80,9 +80,9 @@ public class JobServiceImpl implements JobService {
 	}
 
 	@Override
-	public List<Job> getJobListByUserId(int userId) {
+	public List<Job> getJobListByUserId(int userId,int beginIndex,int endIndex) {
 		List<Job> list=new ArrayList<Job>();
-		list=jobDao.getJobsByUserId(userId);
+		list=jobDao.getJobsByUserId(userId,beginIndex,endIndex);
 		return list;
 	}
 

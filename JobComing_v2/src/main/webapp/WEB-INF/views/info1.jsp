@@ -144,15 +144,15 @@
 						<div class="modal-body">
 							<div class="form-group">
 								<label class="sr-only" for="form-username">Username</label>
-								<input type="text" name="username" value="${loginUser.userName}" readonly="readonly" class="form-username form-control" id="form-username">
+								<input type="text"  value="${loginUser.userName}" readonly="readonly" class="form-username form-control" id="form-username">
 							</div>
 							<div class="form-group">
 								<label class="sr-only" for="form-email">Email</label>
-								<input type="text" name="email" value="${loginUser.email}" readonly="readonly" class="form-username form-control" id="form-email">
+								<input type="text" value="${loginUser.email}" readonly="readonly" class="form-username form-control" id="form-email">
 							</div>
 							<div class="form-group">
 								<label class="sr-only" for="form-phone">Phone</label>
-								<input type="text" name="email" value="${loginUser.phone}" readonly="readonly" class="form-username form-control" id="form-email">
+								<input type="text"  value="${loginUser.phone}" readonly="readonly" class="form-username form-control" id="form-email">
 							</div>
 							<div class="form-group">
 								<label class="control-label">头像选择</label>

@@ -109,8 +109,22 @@
 						</tbody>
 					</table>
 					<ul class="pager">
-					  <li class="previous"><a href="#">&larr; 上一页</a></li>
-					  <li class="next"><a href="#">下一页 &rarr;</a></li>
+						<c:choose>
+							<c:when test="${allpage > 1 }">
+								<c:choose>
+									<c:when test="${allpage==index}">
+										  <li class="previous"><a href="jobPublish?index=${index-1}">&larr; 上一页</a></li>
+									</c:when>
+									<c:when test="${index==1 }">
+										 <li class="next"><a href="jobPublish?index=${index+1}">下一页 &rarr;</a></li>
+									</c:when>
+									<c:otherwise>
+										 <li class="previous"><a href="jobPublish?index=${index-1}">&larr; 上一页</a></li>
+										 <li class="next"><a href="jobPublish?index=${index+1}">下一页 &rarr;</a></li>
+									</c:otherwise>
+								</c:choose>
+							</c:when>
+						</c:choose>
 					</ul>
 				</div>
 			</div>

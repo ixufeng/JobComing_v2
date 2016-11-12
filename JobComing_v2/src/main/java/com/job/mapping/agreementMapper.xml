@@ -51,7 +51,10 @@
 	</update>
 	
 	<!-- 通过用户id返回所有协议记录 -->
-	<select id="getAgreeListByUserId" resultMap="agreement" parameterType="int">
+	<select id="getAgreeListByUserId" resultMap="agreement">
 		select * from agreement,job,user where agreement.user_id=#{userId} and agreement.job_id=job.job_id and user.user_id=#{userId}
+			<if test="beginIndex!=-1 and endIndex!=-1">
+					limit #{beginIndex},#{endIndex}
+			</if>
 	</select>
 </mapper>	
