@@ -88,9 +88,19 @@
 									<td width="auto" style="text-align: center;">
 										<div style="overflow: hidden;display: block;min-width: 100px;">${jobT.job.jobScribe}</div>
 									</td>
-									<td width="60" style="text-align: center">
-										<a data-toggle="modal" data-target="#l${vs.count}">[评价]</a>
-									</td>
+									<c:choose>
+										<c:when test="${jobT.status==4}">
+											<td width="60" style="text-align: center">
+												<a data-toggle="modal" data-target="#l${vs.count}">[评价]</a>
+											</td>
+										</c:when>
+										<c:otherwise>
+											<td width="60" style="text-align: center">
+												<a data-toggle="modal" data-target="">[审核]</a>
+											</td>
+										</c:otherwise>
+									</c:choose>
+									
 									<td width="60" style="text-align: center">
 										<a data-toggle="modal" data-target="#vs${vs.count}">[查看]</a>
 									</td>
