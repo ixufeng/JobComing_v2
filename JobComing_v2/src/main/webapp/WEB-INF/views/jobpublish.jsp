@@ -141,7 +141,7 @@
 									  	   					<img src="../img/public.png"style="width: 60px;height: 60px;" class="img-thumbnail">
 													  </c:when>
 											  		  <c:otherwise>
-									     				 <img src="${loginUser.avatar}" style="width: 60px;height: 60px;" class="img-thumbnail">
+									     				 <img src="../${loginUser.avatar}" style="width: 60px;height: 60px;" class="img-thumbnail">
 									 			 	  </c:otherwise>
 											    </c:choose>
 											</p>
