@@ -3,57 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta http-equiv="Expires" content="0">
-	    <meta http-equiv="kiben" content="no-cache">
-		<meta name="viewport" content="width=device-width,initial-scale=1">
+	<head>	
 		<title>主界面</title>
-		<link href="<c:url value='/css/bootstrap.css'/>" rel="stylesheet">
-		<link href="<c:url value='/css/site.min.css'/>" rel="stylesheet">
-		<link href="<c:url value='/css/message.css'/>" rel="stylesheet">
-		<link href="<c:url value='/css/barrager.css'/>" rel="stylesheet">
-		<link rel="stylesheet" href="<c:url value='/css/main.css'/>" />
-		<link rel="shortcut icon" href="<c:url value='/img/favicon.png'/>">
-		<script type="text/javascript" src="http://cdn.goeasy.io/goeasy.js"></script>
+		<jsp:include page="/WEB-INF/components/styles.jsp"></jsp:include>
 	</head>
 
 	<body class="home-template">
-		<div class="site-notice">
-			<a href=""><em>JobComing~</em></a>
-			<a class="pull-right" id="bullet-button" style="margin-right:30px;">弹幕</a>
-		</div>
-		<header class="site-header jumbotron">
-			<c:choose>
-		  	<c:when test="${empty loginUser}">
-				<div class="site-nav"> 
-					<a href="user/goLogin">登录</a> <span>/</span>
-					<a href="user/goRegister">注册</a>
-				</div>
-			</c:when>
-			<c:otherwise>
-				<div class="site-nav">
-					<a href="user/goUser">${loginUser.userName}</a> <span>/</span>
-					<a href="user/goJobPublish">发布兼职</a>
-				</div>
-			</c:otherwise>
-		  </c:choose>
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12">
-						<form class="" role="search">
-							<div class="form-group">
-								<input type="text" class="form-control search clearable" placeholder="搜索兼职/单位/地点">
-								<i class="glyphicon glyphicon-search"></i>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</header>
-
+		<!-- 引入头部 -->
+		<jsp:include page="/WEB-INF/components/head.jsp"></jsp:include>
 		<div class="container mycontainer">
 			<div class="row">
 				<div class="col-md-9">
@@ -186,33 +143,11 @@
 					</main>
 				</div>
 				<div class="col-md-3 adv visible-md visible-lg" style="padding-right: 0px;">
-					<div class="panel panel-default">
-					    <div class="panel-heading">
-					       	<span class="glyphicon glyphicon-fire"></span>&nbsp;今&nbsp;日&nbsp;兼&nbsp;职&nbsp;推&nbsp;送
-					    </div>
-					     <ul class="list-group" id="today-jobs">
-					 
-					        
-					    </ul>
-					</div>
+					<!-- 今日热推 -->
+					<jsp:include page="/WEB-INF/components/todayjobs.jsp"></jsp:include>
+					<!-- 浏览记录 -->
+					<jsp:include page="/WEB-INF/components/historyjobs.jsp"></jsp:include>
 					
-					<div class="panel panel-default">
-					    <div class="panel-heading">
-					       	<span class="glyphicon glyphicon-apple"></span>&nbsp;最&nbsp;近&nbsp;浏&nbsp;览&nbsp;记&nbsp;录
-					    </div>
-					     <ul class="list-group">
-					        <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
-					        
-					    </ul>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -223,24 +158,11 @@
 				<span>用户反馈</span>
 			</div>
 		</div>
-		<div class="container" id="bullet-con">
-			<div class="row">
-				<div class="col col-xs-12 col-md-9 col-md-offset-2">
-					<div class="input-group">
-				      <input type="text" id="bullet-text" class="form-control">
-				      <span class="input-group-btn">
-				        <button class="btn btn-default" type="button" id="bullet-send">发送弹幕</button>
-				      </span>
-				    </div><!-- /input-group -->
-				</div>				
-			</div>
-			<span id="bullet-close" class="pull-right visible-md glyphicon glyphicon-remove"></span>
-		</div>
+		<!-- 弹幕发送 -->
+		<jsp:include page="/WEB-INF/components/bullet.jsp"></jsp:include>
+		
 		<iframe id="webchat7moor" src="chat.html" style="display: none; margin: 0px; padding: 0px; width: 320px; height: 542px; border-width: 0px; border-radius: 3px; transition: height 0.5s ease-out; z-index: 99999; bottom: 0px; right: 0px; position: fixed;"></iframe>
-		<script type="text/javascript" src="<c:url value='/js/jquery.js'/>" ></script>
-		<script type="text/javascript" src="<c:url value='/js/bootstrap.js'/>" ></script>
-		<script type="text/javascript" src="<c:url value='/js/jquery.barrager.js'/>"></script>
-		<script type="text/javascript" src="<c:url value='/js/message.js'/>"></script>
+		
 		<script>
 			$(".fb-icon").click(function(){
 				$("#webchat7moor").css("display","block");

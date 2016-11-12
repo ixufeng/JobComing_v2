@@ -5,50 +5,14 @@
 <html lang="zh-CN">
 
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<title>兼职详情</title>
-		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/site.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/main.css" />
+		<jsp:include page="/WEB-INF/components/styles.jsp"></jsp:include>		
 		<link rel="stylesheet" href="css/jobInfo.css" />
-		<script type="text/javascript" src="js/map.js"></script>
-		<link rel="shortcut icon" href="img/favicon.png">
+		<script type="text/javascript" src="js/map.js"></script>	
 	</head>
-
+	
 	<body class="home-template">
-		<div class="site-notice">
-			<a href=""><em>JobComing~</em></a>
-		</div>
-		<header class="site-header jumbotron">
-			<c:choose>
-		  	<c:when test="${empty loginUser}">
-				<div class="site-nav"> 
-					<a href="user/goLogin">登录</a> <span>/</span>
-					<a href="user/goRegister">注册</a>
-				</div>
-			</c:when>
-			<c:otherwise>
-				<div class="site-nav">
-					<a href="user/goUser">${loginUser.userName}</a> <span>/</span>
-					<a href="user/goJobPublish">发布兼职</a>
-				</div>
-			</c:otherwise>
-		  </c:choose>
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12">
-						<form class="" role="search">
-							<div class="form-group">
-								<input type="text" class="form-control search clearable" placeholder="搜索兼职/单位/地点">
-								<i class="glyphicon glyphicon-search"></i>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</header>
+		<jsp:include page="/WEB-INF/components/head.jsp"></jsp:include>
 		<div class="container" style="margin-top: 30px;">
 			<div class="row">
 				<div class="col-md-9 job-info">
@@ -235,8 +199,9 @@
 				</div>
 			</div>
 		</div>
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.js"></script>
+		<!-- 弹幕发送 -->
+		<jsp:include page="/WEB-INF/components/bullet.jsp"></jsp:include>
+		
 		<script>
 			$("#show").click(function(){
 				$(".alert-warning").css("display","block");

@@ -126,7 +126,9 @@ public class UserController {
 		ModelAndView mv=new ModelAndView();
 		int age=Integer.parseInt(new SimpleDateFormat("yyyy").format(new Date()));
 		User user=(User) session.getAttribute("loginUser");
+		
 		if(user!=null){
+			System.out.println(user.getBirthday());
 			Date birth=user.getBirthday();
 			if(birth!=null){
 				mv.setViewName("info1");
