@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="time" uri="/WEB-INF/time.tld"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 	<head>	
@@ -103,7 +105,8 @@
 														</a>
 													</strong> &nbsp;•&nbsp; 
 															
-													<small>2天前</small>
+													 <c:set var="time" value="${job.jobTime}"/>
+														<small>${time:getTimeBefore(time)}</small>
 												</span>
 												<div class="sep5" style="height: 1px;"></div>
 												<span style="font-size: 11px; color: #ccc;"> 
@@ -164,8 +167,6 @@
 		
 		<iframe id="webchat7moor" src="chat.html" style="display: none; margin: 0px; padding: 0px; width: 320px; height: 542px; border-width: 0px; border-radius: 3px; transition: height 0.5s ease-out; z-index: 99999; bottom: 0px; right: 0px; position: fixed;"></iframe>
 
-		<script type="text/javascript" src="<c:url value='/js/jquery.barrager.js'/>"></script>
-		<script type="text/javascript" src="<c:url value='/js/message.js'/>"></script>
 		<script src="<c:url value='/js/search.js'/>"></script>
 
 

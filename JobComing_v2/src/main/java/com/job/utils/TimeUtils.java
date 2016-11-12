@@ -8,7 +8,7 @@ import java.util.Date;
 public class TimeUtils {
 
 	/**
-	 * 获取当前精确的时间戳,精确到秒
+	 * 鑾峰彇褰撳墠绮剧‘鐨勬椂闂存埑,绮剧‘鍒扮
 	 */
 	public static long getCTimeStamp(){
 		
@@ -16,7 +16,7 @@ public class TimeUtils {
 	}
 	
 	/**
-	 * 时间戳转换为具体时间格式
+	 * 鏃堕棿鎴宠浆鎹负鍏蜂綋鏃堕棿鏍煎紡
 	 * @param seconds
 	 * @param format
 	 * @return
@@ -31,7 +31,7 @@ public class TimeUtils {
 	 } 
 	
 	 /**
-	  * 根据String的时间来返回龙型
+	  * 鏍规嵁String鐨勬椂闂存潵杩斿洖榫欏瀷
 	  * @return
 	  */
 	 public static long timeStampLong(String time,String format){
@@ -61,7 +61,7 @@ public class TimeUtils {
 		 return time1;
 	 }
 	 /**
-	  *获取当日凌晨时间
+	  *鑾峰彇褰撴棩鍑屾櫒鏃堕棿
 	  * @return
 	  */
 	 public static  Date getTodayBeginDateTime(){
@@ -70,7 +70,7 @@ public class TimeUtils {
 	
 	 }
 	 /**
-	  * 获取今天结束时间
+	  * 鑾峰彇浠婂ぉ缁撴潫鏃堕棿
 	  * @return
 	  */
 	 public static Date getTodayEndDateTime(){
@@ -78,7 +78,7 @@ public class TimeUtils {
 		 return new Date(getTadayEndTime()*1000);
 	 }
 	/**
-	 * 今天结束时间
+	 * 浠婂ぉ缁撴潫鏃堕棿
 	 * @return
 	 */
 	 public static long getTadayEndTime(){
@@ -87,7 +87,7 @@ public class TimeUtils {
 	 }
 	 
 	 /**
-	  * 格式化时间
+	  * 鏍煎紡鍖栨椂闂�
 	  * @return
 	  */
 	 public  static String formatDate(Date d,String format){
@@ -98,7 +98,7 @@ public class TimeUtils {
 		
 	 }
 	/**
-	 * string 返回date型
+	 * string 杩斿洖date鍨�
 	 * @param time
 	 * @return
 	 */
@@ -113,7 +113,7 @@ public class TimeUtils {
 		}
 	}
 	/**
-	 * 时间
+	 * 鏃堕棿
 	 * @param messageDate
 	 * @return
 	 */
@@ -123,25 +123,25 @@ public class TimeUtils {
 		String dateString = "";
 		long before = messageDate.getTime();
 		long now = nowDate.getTime();
-		//差值 秒
+		//宸�� 绉�
 		long sub = (now - before)/1000;
-		//秒
+		//绉�
 		if(sub/60<1){
-			dateString = "1分钟前";
+			dateString = "1 minute ago";
 		}
-		//分钟 
+		//鍒嗛挓 
 		else if(sub/60<60){
-			dateString = sub/60+"分钟前";
+			dateString = sub/60+" minute ago";
 		}
-		//小时
+		//灏忔椂
 		else if(sub/3600<24){
-			dateString = sub/3600+"小时前";
+			dateString = sub/3600+" hour ago";
 		}
-		//天
+		//澶�
 		else if(sub/3600/24<4){
-			dateString = sub/3600/24+"天前";
+			dateString = sub/3600/24+" day ago";
 		}
-		//本身时间
+		//鏈韩鏃堕棿
 		else{
 			dateString = sdf.format(messageDate);
 		}
