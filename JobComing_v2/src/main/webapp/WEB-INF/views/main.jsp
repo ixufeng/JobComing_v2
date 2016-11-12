@@ -23,7 +23,7 @@
 	<body class="home-template">
 		<div class="site-notice">
 			<a href=""><em>JobComing~</em></a>
-			<a class="pull-right" style="margin-right:30px;">弹幕</a>
+			<a class="pull-right" id="bullet-button" style="margin-right:30px;">弹幕</a>
 		</div>
 		<header class="site-header jumbotron">
 			<c:choose>
@@ -232,9 +232,9 @@
 				        <button class="btn btn-default" type="button" id="bullet-send">发送弹幕</button>
 				      </span>
 				    </div><!-- /input-group -->
-				</div>
-				
+				</div>				
 			</div>
+			<span id="bullet-close" class="pull-right visible-md glyphicon glyphicon-remove"></span>
 		</div>
 		<iframe id="webchat7moor" src="chat.html" style="display: none; margin: 0px; padding: 0px; width: 320px; height: 542px; border-width: 0px; border-radius: 3px; transition: height 0.5s ease-out; z-index: 99999; bottom: 0px; right: 0px; position: fixed;"></iframe>
 		<script type="text/javascript" src="<c:url value='/js/jquery.js'/>" ></script>

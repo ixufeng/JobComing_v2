@@ -1,10 +1,18 @@
 #bullet-con{
+	
 	height:60px;
 	width:100%;
 	background-color:rgba(50,50,50,0.5);
 	position:fixed;
 	bottom:0px;
+	bottom:-60px;
 	padding-top:13px;
 	vertical-align:middle;
 	text-align:center;
+}
+#bullet-close{
+	
+	cursor:pointer;
+	margin-top:-40px;
+	
 }

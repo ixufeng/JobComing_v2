@@ -20,6 +20,7 @@ import com.job.bean.Job;
 import com.job.bean.JobKind;
 import com.job.bean.SearchMap;
 import com.job.bean.User;
+import com.job.service.AgreementService;
 import com.job.service.JobService;
 import com.job.serviceImpl.MailServiceImpl;
 import com.job.utils.TimeUtils;
@@ -39,8 +40,8 @@ public class JobCore {
 	
 	@Autowired
 	private HttpSession session;
-	
-	
+	@Autowired
+	private AgreementService agreeService;
 	
 	@RequestMapping("/jobs")
 	public ModelAndView mainPage(@RequestParam(value="pageIndex",required=false)Integer pageIndex,SearchMap searchMap){
@@ -117,20 +118,29 @@ public class JobCore {
 		mv.setViewName("jobInfo");
 		return mv;
 	}
-	
+	/**
+	 * 邮件预约兼职
+	 * @param jobId
+	 * @return
+	 */
 	@RequestMapping("ajax_jobMail")
 	public @ResponseBody String jobMail(@RequestParam int jobId){
 		User u = session.getAttribute("loginUser")==null?null:(User)session.getAttribute("loginUser");
 		if(u!=null){
 			Job job = this.jobService.getJobById(jobId);
-			System.out.println(u.getUserId());
+			
 			if(job!=null){
 				if(job.getSendUser().getUserId()==u.getUserId()){
 					
 					return "selfJob";
 				}else{
+					if(agreeService.getAgreementByUserIdAndJId(u.getUserId(), jobId)!=null){
+						return "hasJob";
+					}
 					//发送邮件
 					boolean bol = MailServiceImpl.applyForJobMail(job.getSendUser().getEmail(), u, job);
+					//增加协议
+					agreeService.update(u.getUserId(), jobId, 1);
 					if(bol)return "success";
 				}
 				

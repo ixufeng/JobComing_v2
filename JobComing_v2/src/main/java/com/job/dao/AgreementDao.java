@@ -35,4 +35,10 @@ public interface AgreementDao {
 	 * @return
 	 */
 	public List<Agreement> getAgreeListByUserId(int userId);
+	
+	/**
+	 * 通过用户的id来工作的id来唯一确定某个协议
+	 * @return
+	 */
+	public Agreement getAgreeByUserIdAndJId(@Param("userId") int userId,@Param("jobId") int jobId);
 }

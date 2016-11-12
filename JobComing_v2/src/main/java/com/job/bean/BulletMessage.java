@@ -10,9 +10,9 @@ public class BulletMessage {
 
 	
 	private String info; //
-	private String img;
+	//private String img;
 	private boolean close = true;
-	private String color = "#0f0";
+	private String color = "#3f8";
 	private String old_ie_color="#000";
 	
 	
@@ -23,12 +23,7 @@ public class BulletMessage {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	public String getImg() {
-		return img;
-	}
-	public void setImg(String img) {
-		this.img = img;
-	}
+	
 	public boolean isClose() {
 		return close;
 	}
@@ -49,7 +44,7 @@ public class BulletMessage {
 	}
 	@Override
 	public String toString() {
-		return "{info:'" + info + "', img:'" + img + "', close:'" + close + "', color:'" + color
+		return "{info:'" + info + "', close:'" + close + "', color:'" + color
 				+ "', old_ie_color:'" + old_ie_color + "'}";
 	}
 	
