@@ -83,7 +83,7 @@
 									  	   <img src="<c:url value='/img/public.png'/>" style="width: 60px;height: 60px;" class="img-thumbnail">
 									  </c:when>
 									  <c:otherwise>
-									      <img src="${loginUser.avatar}" style="width: 60px;height: 60px;" class="img-thumbnail">
+									      <img src="<c:url value='/${loginUser.avatar}'/>" style="width: 60px;height: 60px;" class="img-thumbnail">
 									   </c:otherwise>
 									</c:choose>
 								</td>

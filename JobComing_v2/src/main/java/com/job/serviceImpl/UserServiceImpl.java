@@ -47,4 +47,13 @@ public class UserServiceImpl implements UserService {
 			return false;
 		}
 	}
+
+	@Override
+	public boolean updateUserAvatar(int userId, String userAvatar) {
+		if(userId!=0&&userAvatar!=null){
+			userDao.updateUserAvatar(userId, userAvatar);
+			return true;
+		}
+		return false;
+	}
 }

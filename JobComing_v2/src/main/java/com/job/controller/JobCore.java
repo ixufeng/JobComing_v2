@@ -48,25 +48,25 @@ public class JobCore {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		//鍏堣幏鍙杝ession涓繚瀛樼殑searchkey
+		//閸忓牐骞忛崣鏉漞ssion娑擃厺绻氱�涙娈憇earchkey
 		@SuppressWarnings("unchecked")
 		Map<String,Object>sessionMap = (Map<String, Object>) this.session.getAttribute("sessionMap");
 		
-		//url涓紶鏉ョ殑map
+		//url娑擃厺绱堕弶銉ф畱map
 		Map<String,Object> map = searchMap.getMap();
 		
 		if(pageIndex!=null){
 			
 			map.put("pageIndex", pageIndex);
 		}
-		//浠rl涓殑map涓轰紭鍏�
+		//娴狀櫥rl娑擃厾娈憁ap娑撹桨绱崗锟�
 		if(sessionMap!=null){
 			sessionMap.putAll(map);
 		}else{
 			sessionMap = new HashMap<String,Object>();
 		}
 		
-		//娣诲姞鍏艰亴绉嶇被
+		//濞ｈ濮為崗鑹颁捍缁夊秶琚�
 		List<JobKind> list = new ArrayList<JobKind>();
 		list = jobService.getJobKinds();
 		mv.addObject("jobKinds", list);
@@ -119,7 +119,7 @@ public class JobCore {
 		return mv;
 	}
 	/**
-	 * 邮件预约兼职
+	 * 閭欢棰勭害鍏艰亴
 	 * @param jobId
 	 * @return
 	 */
@@ -137,9 +137,9 @@ public class JobCore {
 					if(agreeService.getAgreementByUserIdAndJId(u.getUserId(), jobId)!=null){
 						return "hasJob";
 					}
-					//发送邮件
+					//鍙戦�侀偖浠�
 					boolean bol = MailServiceImpl.applyForJobMail(job.getSendUser().getEmail(), u, job);
-					//增加协议
+					//澧炲姞鍗忚
 					agreeService.update(u.getUserId(), jobId, 1);
 					if(bol)return "success";
 				}

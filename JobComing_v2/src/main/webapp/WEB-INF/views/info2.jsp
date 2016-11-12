@@ -94,6 +94,11 @@
 												<a data-toggle="modal" data-target="#l${vs.count}">[评价]</a>
 											</td>
 										</c:when>
+										<c:when test="${jobT.status==5}">
+											<td width="60" style="text-align: center">
+												<a data-toggle="modal" data-target="">[已评]</a>
+											</td>
+										</c:when>
 										<c:otherwise>
 											<td width="60" style="text-align: center">
 												<a data-toggle="modal" data-target="">[审核]</a>
@@ -148,16 +153,16 @@
 							<label class="" for="status" style="margin-left: 5px;">参与状态</label>
 							<c:choose>
 								<c:when test="${jobTm.status==1}">
-										<input type="text" name="username" value="预约成功" readonly="readonly" class="form-username form-control" id="form-username">
+										<input type="text" name="username" value="预约成功,审核中" readonly="readonly" class="form-username form-control" id="form-username">
 								</c:when>
 								<c:when test="${jobTm.status==2}">
-										<input type="text" name="username" value="达成一致" readonly="readonly" class="form-username form-control" id="form-username">
+										<input type="text" name="username" value="达成一致，工作就绪" readonly="readonly" class="form-username form-control" id="form-username">
 								</c:when>
 								<c:when test="${jobTm.status==3}">
 										<input type="text" name="username" value="工作期间意外情况未完成工作" readonly="readonly" class="form-username form-control" id="form-username">
 								</c:when>
 								<c:otherwise>
-										<input type="text" name="username" value="工作完成" readonly="readonly" class="form-username form-control" id="form-username">
+										<input type="text" name="username" value="工作已完成" readonly="readonly" class="form-username form-control" id="form-username">
 								</c:otherwise>
 							</c:choose>
 							
@@ -178,7 +183,7 @@
 		<div class="modal fade" id="l${vs.count}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<form action="" method="post">
+					<form action="../evaluate/do?jobId=${jobE.jobId }" method="post">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 							<h4 class="modal-title" id="myModalLabel">用户评价</h4>
@@ -191,7 +196,7 @@
 							</div>
 							<div class="form-group">
 								<label class="" for="content" style="margin-left: 5px;">评价内容</label>
-								<textarea id="fcon" class="form-control" rows="2">用户的一些评价，需要写进评价表</textarea>
+								<textarea id="fcon" class="form-control" rows="2" name="content">用户的一些评价，需要写进评价表</textarea>
 							</div>
 							<div class="form-group">
 								<label class="" for="content" style="margin-left: 5px;">用户评分</label>
@@ -204,7 +209,7 @@
 								</ul>
 							</div>
 							<div class="form-group">
-								<input id="hidd" type="hidden" class="form-control grade" value="" name="grade"/>
+								<input id="hidd" type="hidden" class="form-control grade" value="" name="score"/>
 							</div>
 						</div>
 						<div class="modal-footer">

@@ -31,7 +31,7 @@ public class Chat {
 	public String getChatContent() {
 		return chatContent;
 	}
-	public void setCharContent(String chatContent) {
+	public void setChatContent(String chatContent) {
 		this.chatContent = chatContent;
 	}
 	public Date getChatTime() {

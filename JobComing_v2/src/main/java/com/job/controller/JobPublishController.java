@@ -45,7 +45,6 @@ public class JobPublishController {
 		}else{
 			mv.setViewName("jobpublish");
 		}
-		System.out.println(job.getJobScribe());
 		return mv;
 	}
 	@InitBinder

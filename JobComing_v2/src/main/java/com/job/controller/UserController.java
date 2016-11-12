@@ -1,7 +1,6 @@
 package com.job.controller;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -14,22 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.job.bean.AddressCity;
-import com.job.bean.AddressProvince;
-import com.job.bean.AddressTown;
 import com.job.bean.Job;
-import com.job.bean.JobKind;
 import com.job.bean.User;
 import com.job.service.JobService;
 import com.job.service.UserService;
-import com.job.serviceImpl.AddressServiceImpI;
 import com.job.serviceImpl.MailServiceImpl;
 import com.job.utils.DateEditor;
 @Controller

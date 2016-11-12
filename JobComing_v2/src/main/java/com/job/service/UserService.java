@@ -16,4 +16,6 @@ public interface UserService {
 	 * @return
 	 */
 	public boolean register(User u);
+	
+	public boolean updateUserAvatar(int userId,String userAvatar);
 }
