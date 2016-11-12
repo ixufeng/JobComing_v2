@@ -8,7 +8,11 @@
 		<title>兼职详情</title>
 		<jsp:include page="/WEB-INF/components/styles.jsp"></jsp:include>		
 		<link rel="stylesheet" href="css/jobInfo.css" />
-		<script type="text/javascript" src="js/map.js"></script>	
+		<script type="text/javascript" src="<c:url value='/js/map.js'/>"></script>
+		
+		<link href="<c:url value='/css/chat.css'/>" rel="stylesheet">	
+		<link href="<c:url value='/css/styles.css'/>" rel="stylesheet">	
+		<link href="<c:url value='/css/default.css'/>" rel="stylesheet">	
 	</head>
 	
 	<body class="home-template">
@@ -17,7 +21,7 @@
 		<div class="container" style="margin-top: 30px;">
 			<div class="row">
 				<div class="col-md-9 job-info">
-					<div class="panel panel-default">
+					<div class="panel panel-default" id="jobPublisher" data-username="${job.sendUser.userName }" data-email="${job.sendUser.email }" data-userId="${job.sendUser.userId }">
 						<div class="panel-heading">
 							<h3 class="panel-title">
             					闲着无聊做做兼职--JobComing
@@ -35,7 +39,7 @@
 										<td rowspan="4" width="90" class="hidden-xs">
 											<c:choose>
 												  <c:when test="${ empty job.sendUser.avatar}">
-												  	   <img src="<c:url value='/img/public.png'/>" style="width: 80px;height: 90px;" class="img-thumbnail img-responsive">
+												  	   <img id="user-avatar" src="<c:url value='/img/public.png'/>" style="width: 80px;height: 90px;" class="img-thumbnail img-responsive">
 												  </c:when>
 												  <c:otherwise>
 												      <img src="${job.sendUser.avatar}" style="width: 80px;height: 90px;" class="img-thumbnail img-responsive">
@@ -94,7 +98,7 @@
 									邮件预约
 								</a>
 								
-								<a href="" class="btn btn-default btn-success" style="margin-left: 30px;">
+								<a id="private-chat" class="btn btn-default btn-success" style="margin-left: 30px;">
 									<span class="glyphicon glyphicon-send"></span>
 									私聊一下
 								</a>
@@ -105,90 +109,13 @@
 			
 			
 				<div class="col-md-3 adv visible-md visible-lg" style="padding-right: 0px;">
-					<div class="panel panel-default">
-					    <div class="panel-heading">
-					       	<span class="glyphicon glyphicon-fire"></span>&nbsp;今&nbsp;日&nbsp;兼&nbsp;职&nbsp;推&nbsp;送
-					    </div>
-					     <ul class="list-group">
-					        <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
-					         <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
-					         <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
-					         <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
-					        <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
-					        <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
-					        <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
-					        <li class="list-group-item">
-					        	<a href="">[苏州]</a>&nbsp;
-					        	<a href="">[清洁]</a>&nbsp;
-					        	<a href="">
-					        		<span class="glyphicon glyphicon-map-marker"></span>
-					        		&nbsp;江苏科技大学
-					        		<span style="font-weight: bold;">...</span>
-					        	</a>
-					        </li>
-					    </ul>
-					</div>
+					<!-- 今日热推 -->
+					<jsp:include page="/WEB-INF/components/todayjobs.jsp"></jsp:include>
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<span class="glyphicon glyphicon-map-marker"></span>&nbsp;导&nbsp;航
 						</div>
-						<div class="panel-body" id="map" style="min-height:300px;">
+						<div class="panel-body" id="map" style="min-height:240px;">
 							<script type="text/javascript">
 								ShowMap("map", {
 									city: '${job.cityName }',
@@ -202,7 +129,8 @@
 		</div>
 		<!-- 弹幕发送 -->
 		<jsp:include page="/WEB-INF/components/bullet.jsp"></jsp:include>
-		
+		<jsp:include page="/WEB-INF/components/chatCon.jsp"></jsp:include>
+		<script type="text/javascript" src="<c:url value='/js/chat.js'/>"></script>
 		<script>
 			$("#show").click(function(){
 				$(".alert-warning").css("display","block");

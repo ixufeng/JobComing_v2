@@ -153,4 +153,16 @@ public class JobCore {
 		}
 		return "faliure";
 	}
+	
+	/**
+	 * 异步获取用户信息
+	 * @return
+	 */
+	@RequestMapping("ajax_isLogin")
+	public @ResponseBody User isLogin(){
+		
+		Object obj = this.session.getAttribute("loginUser");
+		
+		return obj==null?null:(User)obj;
+	} 
 }

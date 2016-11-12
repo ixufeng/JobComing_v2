@@ -8,24 +8,24 @@ import com.job.bean.Chat;
 
 public interface ChatDao {
 	/**
-	 * ¸ù¾İÁÄÌì¼ÇÂ¼¶ÔÏó²åÈë±í
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param chat
 	 */
 	public void insert(Chat chat);
 	/**
-	 * ¸ù¾İÓÃ»§id·µ»ØÁÄÌì¼ÇÂ¼
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½idï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
 	 * @param userId
 	 * @return
 	 */
 	public List<Chat> getChatListByUserId(int userId);
 	/**
-	 * Í¨¹ıÁÄÌì±àºÅĞŞ¸Ä×´Ì¬
+	 * Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş¸ï¿½×´Ì¬
 	 * @param chatId
 	 * @param status
 	 */
 	public void update(@Param("chatId")int chatId,@Param("status")int status);
 	/**
-	 * Í¨¹ıÁÄÌì±àºÅÉ¾³ıÁÄÌì¼ÇÂ¼
+	 * æ‰¹é‡åˆ é™¤
 	 * @param chatId
 	 */
 	public void delete(List<Integer> list);

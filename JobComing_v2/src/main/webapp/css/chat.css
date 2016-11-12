@@ -10,7 +10,6 @@ body{
     font-family: "Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica;
     background-color: #fff;
     border-radius: 3px;
-    overflow: hidden;
 }
 .header {
     height: 46px;

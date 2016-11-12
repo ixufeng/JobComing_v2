@@ -131,18 +131,33 @@ $(document).ready(function () {
 	 
     /*点击私聊，来初始化聊天框*/
     $("#private-chat").click(function(){
-    	var user = $("#jobPublisher").attr("data-person");
-    	var userId =  $("#jobPublisher").attr("data-Id");
-    	var userEmail = $("#jobPublisher").attr("data-email");
-    	var userImg = $("#user-avatar").attr("src");   	
-    	appendUser(user,userImg,"",userId);
+    	//验证是否登陆
+    	$.ajax({
+    		url:"/JobComing_v2/ajax_isLogin",
+    		dataType:"json",
+    		success:function(data){
+    			
+    			var userName = $("#jobPublisher").attr("data-userName");
+    	    	var userId =  $("#jobPublisher").attr("data-userId");
+    	    	var userEmail = $("#jobPublisher").attr("data-email");
+    	    	var userImg = $("#user-avatar").attr("src"); 
+    	    	appendUser(userName,userImg,userEmail,userId);
+    		},
+    		error:function(data){
+    			alert("请先登录！");
+    		}
+    		
+    	});
+
     });
+    
+    
     $("#chat-close").click(function(){
     	
     	$("#chatbox").fadeOut();
     });
   
-  //将发送的消息添加到消息框里
+    //将发送的消息添加到消息框里
 	function sendHandle(content){
 
     	
@@ -158,25 +173,29 @@ $(document).ready(function () {
     	$("#content").val("");
 	}
     
+	/**
+	 * 发送消息
+	 * @returns
+	 */
     function sendMessage(){
     	
-    	var content = $("#content").val();
+    	var chatContent = $("#content").val();
+
     	var receivedUserKey = cp;
-    	sendHandle(content);
+    	sendHandle(chatContent);
     	$.ajax({
-    		url : "ChatServlet", 
+    		url : "/JobComing_v2/message/ajax_sendchat", 
 			type : "post",
 			dataType : "json",
     		data:{
-    				"action":"send",
-    				"content":content,
-    				"receivedUserKey":receivedUserKey
+    				"chatContent":chatContent,
+    				"userRecieveId":receivedUserKey
     		},  	
     		success:function(data){
-    			//发送成功
+    			
     		},
     		error:function(data){
-    			console.log(data);
+    			
     		}
     	});
     }
@@ -192,7 +211,7 @@ $(document).ready(function () {
 	    function appendUser(userKey,userImage,userEmail="",userId){
 	    	
 	    	$("#chatbox").fadeIn();
-	    	console.log($("#"+userKey+""));
+	    	
 	    	$("#friends").html("");	
 			var friend = '<div class="friend">';
 			friend+='<img src="'+userImage+'" />';
@@ -210,6 +229,6 @@ $(document).ready(function () {
 	    	sendMessage();
 	    });
 	    
-	   window.setInterval("getMessage()",2000);
+	   //window.setInterval("getMessage()",2000);
 	   
 	});
