@@ -55,11 +55,13 @@ public class UserController {
 		ModelAndView mv=new ModelAndView();
 		mv.setViewName("login");
 		if(user!=null){
-			if(user.getIdentifyCode().substring(0, 9).equalsIgnoreCase("jobcoming")){
+			String identifyCode = user.getIdentifyCode();
+			if(identifyCode!=null&&identifyCode.length()>9&&identifyCode.substring(0, 9).equalsIgnoreCase("jobcoming")){
 				mv.setViewName("redirect:../jobs");
 				mv.addObject("loginUser", user);
 			}else{
-				mv.addObject("tip", "’À∫≈…–Œ¥º§ªÓ£°");
+				
+				mv.addObject("tip", "identify not active");
 			}
 		}
 		return mv;
