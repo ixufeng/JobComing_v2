@@ -19,6 +19,7 @@
 	$("#bullet-send").click(function(){
 		
 		var text = $("#bullet-text").val();
+		 $("#bullet-text").val("");
 		if(text==null||text.trim()==""){
 			return;
 		}
