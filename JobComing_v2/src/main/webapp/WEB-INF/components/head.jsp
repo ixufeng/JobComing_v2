@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <div class="site-notice">
 			<a href=""><em>JobComing~</em></a>
-			<a class="pull-right" id="bullet-button" style="margin-right:30px;">弹幕</a>
+			<a class="pull-right" id="bullet-button" data-flag="0" style="margin-right:30px;">弹幕</a>
 		</div>
 		<header class="site-header jumbotron">
 			<c:choose>

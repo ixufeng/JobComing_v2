@@ -1,18 +1,38 @@
 //发送弹幕
-
+var goEasy = new GoEasy({
+    appkey: '93468357-b450-4c4b-a011-ce2dd9e9b59a'
+});
 (function(){
 	//打开发送弹幕栏
 	$("#bullet-button").click(function(){
+		var flag = $(this).attr("data-flag");
+		if(flag=="0"){
+			$("#bullet-con").animate({"bottom":"0px"},200);
+			$(this).attr("data-flag","1");
+			$(this).html("关闭弹幕");
+			goEasy.subscribe({
+				  channel: 'bulletMessage',
+				  onMessage: function(message){
+					  if(message!=null){
+						  
+						  var json = eval('('+message.content+')');
+						 $('body').barrager(json);
+					  }			      
+				  }
+				});
+		}else{
+			$("#bullet-con").animate({"bottom":"-60px"},200);
+			$(this).attr("data-flag","0");
+			$(this).html("打开弹幕");
+			goEasy.unsubscribe({
+				
+				 channel: 'bulletMessage'
+			});
+		}
 		
-		$("#bullet-con").animate({"bottom":"0px"},200);
 		
 	});
-	//关闭发送弹幕栏
-	$("#bullet-close").click(function(){
-		
-		$("#bullet-con").animate({"bottom":"-60px"},200);
-		
-	});
+	
 	
 	
 	//点击发送弹幕
@@ -32,6 +52,12 @@
 				"close":true,
 				"speed":6
 			},
+			success:function(data){
+				
+				if(data=="unlogin"){
+					alert("请先登录！");
+				}
+			},
 			error:function(data){
 				
 				console.log(data);
@@ -44,21 +70,6 @@
 
 })();
 
-var goEasy = new GoEasy({
-    appkey: '93468357-b450-4c4b-a011-ce2dd9e9b59a'
-});
-
-goEasy.subscribe({
-  channel: 'bulletMessage',
-  onMessage: function(message){
-	  if(message!=null){
-		  
-		  var json = eval('('+message.content+')');
-		 $('body').barrager(json);
-	  }
-      
-  }
-});
 
 //发送邮件
 $(".send-email").click(function(){

@@ -41,10 +41,14 @@ public class MessageController {
 	@RequestMapping("/bullet")
 	public @ResponseBody String bullet(BulletMessage bul){
 		
-		
-		if(this.messageService.pushBulletMessage(bul)){
-			return "success";
+		if(this.session.getAttribute("loginUser")!=null){
+			if(this.messageService.pushBulletMessage(bul)){
+				return "success";
+			}
+		}else{
+			return "unlogin";
 		}
+		
 		
 		return "error";
 		
