@@ -40,13 +40,22 @@ public class AgreementServiceImpI implements AgreementService {
 		
 	}
 	@Override
-	public boolean update(int agreementId, int status) {
-		if(agreementId!=0&&status!=0){
-			agreementDao.update(agreementId, status);
+	public boolean update(int userId, int jobId,int status) {
+		Agreement agree = getAgreementByUserIdAndJId(userId,jobId);
+		if(agree!=null){
+			agreementDao.update(agree.getAgreementId(), status);
 			return true;
-		}else{
-			return false;
+		}else if(status==1){
+			//添加这份协议
+			Agreement ag = new Agreement();
+			ag.setJobId(jobId);
+			ag.setStatus(1);
+			ag.setUserId(userId);
+			insert(ag);
+			return true;
 		}
+		
+		return false;
 		
 	}
 	@Override
@@ -59,6 +68,18 @@ public class AgreementServiceImpI implements AgreementService {
 			return null;
 		}
 		
+	}
+	/**
+	 * 查出用户对应某个工作的协议
+	 */
+	@Override
+	public Agreement getAgreementByUserIdAndJId(int userId, int jobId) {
+		if(userId<=0||jobId<=0){
+			return null;
+		}
+		
+		return  this.agreementDao.getAgreeByUserIdAndJId(userId, jobId);
+
 	}
 	
 }

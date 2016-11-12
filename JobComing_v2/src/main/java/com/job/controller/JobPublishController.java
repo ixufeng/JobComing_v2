@@ -20,7 +20,7 @@ import com.job.utils.DateEditor;
 @RequestMapping("/jobPublish")
 public class JobPublishController {
 	/**
-	 * 宸ヤ綔鍙戝竷
+	 * 
 	 * @param job
 	 * @return
 	 */
@@ -45,7 +45,7 @@ public class JobPublishController {
 		}else{
 			mv.setViewName("jobpublish");
 		}
-		
+		System.out.println(job.getJobScribe());
 		return mv;
 	}
 	@InitBinder

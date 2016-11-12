@@ -1,22 +1,35 @@
 //发送弹幕
 
 (function(){
+	//打开发送弹幕栏
+	$("#bullet-button").click(function(){
+		
+		$("#bullet-con").animate({"bottom":"0px"},200);
+		
+	});
+	//关闭发送弹幕栏
+	$("#bullet-close").click(function(){
+		
+		$("#bullet-con").animate({"bottom":"-60px"},200);
+		
+	});
+	
 	
 	//点击发送弹幕
 	$("#bullet-send").click(function(){
 		
 		var text = $("#bullet-text").val();
+		if(text==null||text.trim()==""){
+			return;
+		}
 		$.ajax({
 			url:"message/bullet",			
 			dataType:"text",
 			data:{
 				"info":text,
-				"color":'#0f0',
+				"color":'#505',
 				"close":true,
 				"speed":6
-			},
-			success:function(data){
-				console.log(data);
 			},
 			error:function(data){
 				
@@ -77,6 +90,11 @@ $(".send-email").click(function(){
 				}
 				if(data=="faliure"){
 					alert("发送邮件失败");
+				}
+				if(data=="hasJob"){
+					alert("这个工作已经预约过了");
+					om.attr("data-pre","1");
+					om.css("color","#ccc");
 				}
 			},
 			

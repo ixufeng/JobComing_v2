@@ -22,7 +22,7 @@ public class AddressServiceImpI {
 	@Autowired
 	private TownDao townDao;
 	/**
-	 * ������е�ʡ�ݼ���
+	 * 
 	 * @return
 	 */
 	public List<AddressProvince> getAllProvince(){
@@ -31,7 +31,7 @@ public class AddressServiceImpI {
 		return list;
 	}
 	/**
-	 * ������еĳ��м���
+	 * 
 	 * @return
 	 */
 	public List<AddressCity> getAllCity(){
@@ -40,7 +40,7 @@ public class AddressServiceImpI {
 		return list;
 	}
 	/**
-	 * ������е����ؼ���
+	 * 
 	 * @return
 	 */
 	public List<AddressTown> getAllTown(){
@@ -49,7 +49,7 @@ public class AddressServiceImpI {
 		return list;
 	}
 	/**
-	 * ���ݳ������Ʒ��س��ж���
+	 * 
 	 * @param cityName
 	 * @return
 	 */
@@ -59,7 +59,7 @@ public class AddressServiceImpI {
 		return addressCity;
 	}
 	/**
-	 * ���ݳ��б��뷵�س��ж���
+	 * 
 	 * @param cityCode
 	 * @return
 	 */

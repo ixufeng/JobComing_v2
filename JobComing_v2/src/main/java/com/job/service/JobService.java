@@ -29,7 +29,7 @@ public interface JobService {
 	 */
 	public boolean addJob(Job job);
 	/**
-	 * 通过用户id返回发布集合
+	 * 通
 	 * @param userId
 	 * @return
 	 */

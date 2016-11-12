@@ -57,4 +57,11 @@
 					limit #{beginIndex},#{endIndex}
 			</if>
 	</select>
+	<select id="getAgreeByUserIdAndJId" resultMap="agreement">
+		select * from agreement,job,user where 
+			agreement.user_id = user.user_id
+			and agreement.job_id = job.job_id
+			and agreement.job_id = #{jobId}
+			and agreement.user_id = #{userId}
+	</select>
 </mapper>	
