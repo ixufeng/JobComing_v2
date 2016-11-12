@@ -47,6 +47,8 @@
 							<div class="form-group">
 								<input type="text" class="form-control search clearable" placeholder="搜索兼职/单位/地点">
 								<i class="glyphicon glyphicon-search"></i>
+									<ul class="list-group" id="hide-info">
+									</ul>
 							</div>
 						</form>
 					</div>
@@ -241,6 +243,7 @@
 		<script type="text/javascript" src="<c:url value='/js/bootstrap.js'/>" ></script>
 		<script type="text/javascript" src="<c:url value='/js/jquery.barrager.js'/>"></script>
 		<script type="text/javascript" src="<c:url value='/js/message.js'/>"></script>
+		<script src="<c:url value='/js/search.js'/>"></script>
 		<script>
 			$(".fb-icon").click(function(){
 				$("#webchat7moor").css("display","block");

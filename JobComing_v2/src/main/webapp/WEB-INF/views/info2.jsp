@@ -45,15 +45,6 @@
 								<i class="glyphicon glyphicon-search"></i>
 								<!--这个是键盘按下的时候搜索的ajax异步显示信息-->
 									<ul class="list-group" id="hide-info">
-										<li class="list-group-item">
-											<a href="">java</a>
-										</li>
-										<li class="list-group-item">
-											<a href="">java</a>
-										</li>
-										<li class="list-group-item">
-											<a href="">java</a>
-										</li>
 									</ul>
 							</div>
 						</form>
@@ -73,10 +64,10 @@
 				</div>
 				<div class="col-md-10 myinfo">
 					<ul class="nav nav-tabs">
-						<li class="active bar">
+						<li class="bar">
 							<a href="../user/goUser">我的信息</a>
 						</li>
-						<li class="bar">
+						<li class="active bar">
 							<a href="">参与记录</a>
 						</li>
 						<li class="bar">
@@ -142,6 +133,24 @@
 						<div class="form-group">
 							<label class="" for="username" style="margin-left: 5px;">发布人</label>
 							<input type="text" name="username" value="${jobTm.user.userName}" readonly="readonly" class="form-username form-control" id="form-username">
+						</div>
+						<div class="form-group">
+							<label class="" for="status" style="margin-left: 5px;">参与状态</label>
+							<c:choose>
+								<c:when test="${jobTm.status==1}">
+										<input type="text" name="username" value="预约成功" readonly="readonly" class="form-username form-control" id="form-username">
+								</c:when>
+								<c:when test="${jobTm.status==2}">
+										<input type="text" name="username" value="达成一致" readonly="readonly" class="form-username form-control" id="form-username">
+								</c:when>
+								<c:when test="${jobTm.status==3}">
+										<input type="text" name="username" value="工作期间意外情况未完成工作" readonly="readonly" class="form-username form-control" id="form-username">
+								</c:when>
+								<c:otherwise>
+										<input type="text" name="username" value="工作完成" readonly="readonly" class="form-username form-control" id="form-username">
+								</c:otherwise>
+							</c:choose>
+							
 						</div>
 						<div class="form-group">
 							<label class="" for="content" style="margin-left: 5px;">发布详情</label>

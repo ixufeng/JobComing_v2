@@ -44,17 +44,6 @@
 								<input type="text" class="form-control search clearable" placeholder="搜索兼职/单位/地点">
 								<i class="glyphicon glyphicon-search"></i>
 								<!--这个是键盘按下的时候搜索的ajax异步显示信息-->
-									<ul class="list-group" id="hide-info">
-										<li class="list-group-item">
-											<a href="">java</a>
-										</li>
-										<li class="list-group-item">
-											<a href="">java</a>
-										</li>
-										<li class="list-group-item">
-											<a href="">java</a>
-										</li>
-									</ul>
 							</div>
 						</form>
 					</div>
@@ -73,13 +62,13 @@
 				</div>
 				<div class="col-md-10 myinfo">
 					<ul class="nav nav-tabs">
-						<li class="active bar">
+						<li class=" bar">
 							<a href="../user/goUser">我的信息</a>
 						</li>
 						<li class="bar">
 							<a href="../jobRecord/together">参与记录</a>
 						</li>
-						<li class="bar">
+						<li class="active bar">
 							<a>分享记录</a>
 						</li>
 					</ul>

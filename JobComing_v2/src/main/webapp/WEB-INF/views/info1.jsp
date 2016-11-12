@@ -45,15 +45,6 @@
 								<i class="glyphicon glyphicon-search"></i>
 								<!--这个是键盘按下的时候搜索的ajax异步显示信息-->
 									<ul class="list-group" id="hide-info">
-										<li class="list-group-item">
-											<a href="">java</a>
-										</li>
-										<li class="list-group-item">
-											<a href="">java</a>
-										</li>
-										<li class="list-group-item">
-											<a href="">java</a>
-										</li>
 									</ul>
 							</div>
 						</form>
