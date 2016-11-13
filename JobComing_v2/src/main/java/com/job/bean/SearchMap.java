@@ -55,10 +55,10 @@ public class SearchMap {
 			map.put("cityName", null);
 		}
 			
-		if(this.weekTime!=0&&this.weekTime!=0){
+		if(this.weekTime!=0){
 			map.put("weekTime", this.weekTime);
 		}
-		if("-1".equals(this.weekTime)){
+		if(-1==this.weekTime){
 			map.put("weekTime", null);
 		}
 			

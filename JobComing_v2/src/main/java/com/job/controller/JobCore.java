@@ -64,6 +64,7 @@ public class JobCore {
 			sessionMap.putAll(map);
 		}else{
 			sessionMap = new HashMap<String,Object>();
+			sessionMap.putAll(map);
 		}
 		
 		//濞ｈ濮為崗鑹颁捍缁夊秶琚�
@@ -73,7 +74,7 @@ public class JobCore {
 		
 		
 		mv.setViewName("main");
-		mv.addObject("jobs", jobService.getJobs(map));
+		mv.addObject("jobs", jobService.getJobs(sessionMap));
 		mv.addObject("sessionMap", sessionMap);
 
 		return mv;
