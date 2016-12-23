@@ -21,11 +21,11 @@ public class DateEditor extends PropertyEditorSupport{
     public void setAsText(String text) throws IllegalArgumentException {  
         Date value = null;  
         if(text!=null&&!text.equals("")){  
-            SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");  
+            SimpleDateFormat sf = new SimpleDateFormat("yyyy");  
             try {  
                 value = sf.parse(text);  
-            } catch (ParseException e) {  
-                e.printStackTrace();  
+            } catch (ParseException e) {
+            	e.printStackTrace();
             }  
               
         }  

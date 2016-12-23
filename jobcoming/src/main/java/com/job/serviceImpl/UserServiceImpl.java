@@ -36,9 +36,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean register(User u) {
+	public synchronized boolean register(User u) {
 		if(u!=null){
 			if(userDao.addUser(u)){
+				System.out.println("42" + u.getBirthday());
 				return true;
 			}else{
 				return false;
@@ -55,5 +56,29 @@ public class UserServiceImpl implements UserService {
 			return true;
 		}
 		return false;
+	}
+
+
+	@Override
+	public User getUserByActiveCode(String activeCode) {
+		if(activeCode==null||activeCode.length()<20){
+			return null;
+		}
+		return userDao.getUserByActiveCode(activeCode);
+
+	}
+
+	@Override
+	public String activeUser(String code) {
+		User u = getUserByActiveCode(code);
+		if(u!=null){
+			if(code.equals(u.getIdentifyCode())){
+				//验证成功
+				u.setIdentifyCode("jobcoming_" + u.getUserName());
+				userDao.updateUser(u);
+				return "success";
+			}
+		}
+		return "failed";
 	}
 }

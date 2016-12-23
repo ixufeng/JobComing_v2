@@ -9,7 +9,7 @@ import com.job.bean.User;
 public interface UserDao {
 	/**
 	 * 
-	 * �����û�id����ѯһ���򵥵�userId
+	 * 
 	 * @param userId
 	 * @return
 	 */
@@ -73,5 +73,12 @@ public interface UserDao {
 	 * @return
 	 */
 	public User getUserByPhone(long phone);
+	
+	/**
+	 * 根据激活码来查找用户
+	 * @param acticeCode
+	 * @return
+	 */
+	public User getUserByActiveCode(@Param("activeCode") String activeCode);
 	
 }

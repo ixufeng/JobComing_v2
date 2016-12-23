@@ -10,14 +10,14 @@
 			<c:choose>
 		  	<c:when test="${empty loginUser}">
 				<div class="site-nav"> 
-					<a href="/JobComing_v2/user/goLogin">登录</a> <span>/</span>
-					<a href="/JobComing_v2/user/goRegister">注册</a>
+					<a href="/jobcoming/user/goLogin">登录</a> <span>/</span>
+					<a href="/jobcoming/user/goRegister">注册</a>
 				</div>
 			</c:when>
 			<c:otherwise>
 				<div class="site-nav">
-					<a href="/JobComing_v2/user/goUser">${loginUser.userName}</a> <span>/</span>
-					<a href="/JobComing_v2/user/goJobPublish">发布兼职</a>
+					<a href="/jobcoming/user/goUser">${loginUser.userName}</a> <span>/</span>
+					<a href="/jobcoming/user/goJobPublish">发布兼职</a>
 				</div>
 			</c:otherwise>
 		  </c:choose>

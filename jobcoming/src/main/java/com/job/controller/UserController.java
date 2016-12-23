@@ -64,9 +64,11 @@ public class UserController {
 	public ModelAndView register(User user){
 		String code=UUID.randomUUID().toString();
 		user.setIdentifyCode(code);
+		
 		if(uService.register(user)){
+			
 			MailServiceImpl.sendActiveMail(user.getEmail(),code);
-			return new ModelAndView("login");
+			return new ModelAndView("registerSuccess");
 		}
 		return new ModelAndView("register");
 	}
@@ -89,7 +91,6 @@ public class UserController {
 		User user=(User) session.getAttribute("loginUser");
 		
 		if(user!=null){
-			System.out.println(user.getBirthday());
 			Date birth=user.getBirthday();
 			if(birth!=null){
 				mv.setViewName("info1");

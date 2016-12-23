@@ -20,7 +20,7 @@ $(document).ready(function(){
 			for(var i =0;i<data.length;i++){
 				var html = '<li class="list-group-item">'
 					html+= '<a href="">['+data[i].cityName+']</a>&nbsp;'
-					html+= '<a href="/JobComing_v2/jobInfo?jobId='+data[i].jobId+'">'
+					html+= '<a href="/jobcoming/jobInfo?jobId='+data[i].jobId+'">'
 					html+= '<span class="glyphicon glyphicon-map-marker"></span>'
 					html+= '&nbsp;'+data[i].detailAddr.substring(0,6)
 					html+= '<span style="font-weight: bold;">...</span>'

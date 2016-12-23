@@ -18,4 +18,7 @@ public interface UserService {
 	public boolean register(User u);
 	
 	public boolean updateUserAvatar(int userId,String userAvatar);
+	
+	public User getUserByActiveCode(String activeCode);
+	public String activeUser(String code);
 }

@@ -76,7 +76,7 @@ public class MailServiceImpl {
 	 */
 	public static boolean sendActiveMail(String user,String activeCode){
 		try {
-			boolean bol = sendCommon(user,"JobComing.org","来自JobComing的激活邮件","<html><p>请在半小时之内点击下面的链接进行激活<a href='http://www.ixufeng.cn:8080/JobComing/login.jsp?acticeCode="+activeCode+"'>马上激活！</a></p></html>");
+			boolean bol = sendCommon(user,"JobComing.org","the email is used to activate the account of jobciming","<html><p>Please click on the following link to activate within half an hour<a href='http://www.ixufeng.cn:8080/jobcoming/api/active?acticeCode="+activeCode+"'>active now !</a></p></html>");
 			if(bol)return true;
 		} catch (Throwable e) {
 			
@@ -100,7 +100,7 @@ public class MailServiceImpl {
 			return false;
 		}
 		
-		String html = "<html><body><strong>【求职人】：</strong>："+sendUser.getUserName()+"<br/>【联系电话】："+sendUser.getPhone()+"<br/>&nbsp;&nbsp;&nbsp;你可以通过电话直接和他联系，也可以<a href='#'>点击这里</a>登陆到JobComing来联系</body></html>";
+		String html = "<html><body><strong>【求职人】：</strong>："+sendUser.getUserName()+"<br/>【求职电话】："+sendUser.getPhone()+"<br/>&nbsp;&nbsp;&nbsp;你可以通过电话直接和他联系，也可以<a href='#'>点击这里</a>登陆到JobComing来联系</body></html>";
 		try {
 			
 			boolean bol = sendCommon(recevecdUserEmail,sendUser.getEmail(),"JobComing:有人向您发出的【"+job.getJobScribe()+"】这份工作感兴趣",html);
@@ -113,13 +113,5 @@ public class MailServiceImpl {
 		
 		return false;
 	}
-	
-	
-	public static void main(String[] args) throws Throwable {
-		
-		
-	}
-	
-	
 	
 }

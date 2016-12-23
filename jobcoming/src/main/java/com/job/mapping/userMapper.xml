@@ -39,7 +39,10 @@
 	
 	<!-- 修改多项参数时使用 -->
 	<update id="updateUser" parameterType="com.job.bean.User">
-		update user set true_name=#{trueName},birthday=#{birthday},sex=#{sex},phone=#{phone},email=#{email}
+		update user set true_name=#{trueName},birthday=#{birthday},
+			sex=#{sex},phone=#{phone},
+			email=#{email},identify_code=#{identifyCode} 
+				where user_id=#{userId}
 	</update>
 
 	<!-- 添加一个用户 -->
@@ -70,4 +73,7 @@
 		select * from user where phone = #{phone}
 	</select>
 	
+	<select id="getUserByActiveCode" resultMap="User" parameterType="java.lang.String">
+		select * from user where identify_code = #{activeCode}
+	</select>
 </mapper>
