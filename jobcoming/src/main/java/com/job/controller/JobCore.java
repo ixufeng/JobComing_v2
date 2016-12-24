@@ -166,4 +166,6 @@ public class JobCore {
 		
 		return obj==null?null:(User)obj;
 	} 
+	
+
 }

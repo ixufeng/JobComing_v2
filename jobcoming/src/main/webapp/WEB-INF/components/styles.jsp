@@ -25,3 +25,7 @@
 <!-- bootstrap -->
 <script type="text/javascript" src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.js"></script>
 <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet"/>
+
+<!-- select2 -->
+<link href="http://cdn.bootcss.com/select2/4.0.3/css/select2.css" rel="stylesheet">
+<script src="//cdn.bootcss.com/select2/4.0.3/js/select2.js"></script>

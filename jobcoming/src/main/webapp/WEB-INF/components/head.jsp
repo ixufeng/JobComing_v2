@@ -26,7 +26,7 @@
 					<div class="col-xs-12">
 						<form class="" role="search">
 							<div class="form-group">
-								<input type="text" class="form-control search clearable" placeholder="搜索兼职/单位/地点">
+								<input type="text" id="select-job" class="form-control search clearable" placeholder="搜索兼职/单位/地点">
 								<i class="glyphicon glyphicon-search"></i>
 								<ul class="list-group" id="hide-info">
 									</ul>
