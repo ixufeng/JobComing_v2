@@ -16,5 +16,3 @@ jdk1.8 servlet3.1
 ## 构建工具 
 我们使用了maven作为我们项目的构建工具，你可以直接下载后，运行 mvn:run 即可运行,你也可以通过配置pom.xml来使用你自己配置的容器。
 
-##前端
-基于组件式开发，三方框架：angularJs+bootstrap+jquery+select2
