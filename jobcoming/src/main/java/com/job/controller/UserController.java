@@ -127,4 +127,10 @@ public class UserController {
 		map.put("jobKindName", "清洁");
 		return this.jobService.getJobs(map);
 	}
+	
+	@RequestMapping("/loginOut")
+	public ModelAndView loginOut(){
+		this.session.setAttribute("loginUser", null);
+		return new ModelAndView("redirect:login");
+	}
 }

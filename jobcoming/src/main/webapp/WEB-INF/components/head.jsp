@@ -18,6 +18,7 @@
 				<div class="site-nav">
 					<a href="/jobcoming/user/goUser">${loginUser.userName}</a> <span>/</span>
 					<a href="/jobcoming/user/goJobPublish">发布兼职</a>
+					<a href="/jobcoming/user/loginOut">[退出登陆]</a>
 				</div>
 			</c:otherwise>
 		  </c:choose>
