@@ -82,13 +82,16 @@ public class MessageServiceImpl implements MessageService {
 		if(userId>0){
 			list = chatDao.getChatListByUserId(userId);
 			List<Integer> tempList = new ArrayList<>();
-			if(list.size()>0){
+			if(list!=null&&list.size()>0){
 				
 				for(Chat chat:list){
 					tempList.add(chat.getChatId());
 				}
 			}
-			chatDao.delete(tempList);
+			if(tempList.size() > 0){
+				chatDao.delete(tempList);
+			}
+			
 		}
 		
 		

@@ -2,17 +2,14 @@ package com.job.controller;
 
 
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.job.bean.BulletMessage;
@@ -83,9 +80,16 @@ public class MessageController {
 	 * @return
 	 */
 	@RequestMapping(value="/ajax_getchat")
-	public @ResponseBody List<Chat> getChatMessage(int userId){
-		List<Chat> list = new ArrayList<Chat>();
-		list = messageService.getChatMessage(userId);
-		return list;
+	public @ResponseBody List<Chat> getChatMessage(){
+		Object objUser = this.session.getAttribute("loginUser");
+		if(objUser!=null){
+			User u = (User)objUser;
+			List<Chat> list = new ArrayList<Chat>();
+			list = messageService.getChatMessage(u.getUserId());
+			return list;
+		}
+		
+		return new ArrayList<Chat>();
+		
 	}
 }

@@ -35,6 +35,15 @@ import com.job.utils.TimeUtils;
 @RequestMapping("/")
 public class JobCore {
 	
+	private static Map<Integer,Job>jobMap = new HashMap<>();  
+	
+	/**
+	 *将工作放入map中进行维护
+	 */
+	static{
+		
+	}
+	
 	@Autowired
 	private JobService jobService;
 	

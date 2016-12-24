@@ -34,11 +34,10 @@ function appendMessage(data){
 
 function getMessage(){  	
     	$.ajax({
-    		url : "ChatServlet", 
+    		url : "/jobcoming/message/ajax_getchat", 
 			type : "post",
 			dataType : "json",
 			scriptCharset:"utf-8",
-    		data:{"action":"get"},
     		success:function(data){
     			
     			if(data.length>0){
@@ -133,14 +132,14 @@ $(document).ready(function () {
     $("#private-chat").click(function(){
     	//验证是否登陆
     	$.ajax({
-    		url:"/JobComing_v2/ajax_isLogin",
+    		url:"/jobcoming/ajax_isLogin",
     		dataType:"json",
     		success:function(data){
-    			
     			var userName = $("#jobPublisher").attr("data-userName");
     	    	var userId =  $("#jobPublisher").attr("data-userId");
     	    	var userEmail = $("#jobPublisher").attr("data-email");
-    	    	var userImg = $("#user-avatar").attr("src"); 
+    	    	var userImg = $("#user-avatar").attr("src");     	    	
+    	    	userImg = userImg?userImg:"img/public.png";   
     	    	appendUser(userName,userImg,userEmail,userId);
     		},
     		error:function(data){
@@ -184,7 +183,7 @@ $(document).ready(function () {
     	var receivedUserKey = cp;
     	sendHandle(chatContent);
     	$.ajax({
-    		url : "/JobComing_v2/message/ajax_sendchat", 
+    		url : "/jobcoming/message/ajax_sendchat", 
 			type : "post",
 			dataType : "json",
     		data:{
@@ -229,6 +228,6 @@ $(document).ready(function () {
 	    	sendMessage();
 	    });
 	    
-	   //window.setInterval("getMessage()",2000);
+	   window.setInterval("getMessage()",2000);
 	   
 	});

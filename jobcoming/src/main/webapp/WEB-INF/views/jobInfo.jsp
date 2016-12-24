@@ -42,7 +42,7 @@
 												  	   <img id="user-avatar" src="<c:url value='/img/public.png'/>" style="width: 80px;height: 90px;" class="img-thumbnail img-responsive">
 												  </c:when>
 												  <c:otherwise>
-												      <img src="${job.sendUser.avatar}" style="width: 80px;height: 90px;" class="img-thumbnail img-responsive">
+												      <img src="${job.sendUser.avatar}" id="user-avatar" style="width: 80px;height: 90px;" class="img-thumbnail img-responsive">
 												   </c:otherwise>
 												</c:choose>
 										</td>
