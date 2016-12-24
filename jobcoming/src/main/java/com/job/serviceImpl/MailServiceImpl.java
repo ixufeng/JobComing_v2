@@ -76,7 +76,7 @@ public class MailServiceImpl {
 	 */
 	public static boolean sendActiveMail(String user,String activeCode){
 		try {
-			boolean bol = sendCommon(user,"JobComing.org","the email is used to activate the account of jobciming","<html><p>Please click on the following link to activate within half an hour<a href='http://www.ixufeng.cn:8080/jobcoming/api/active?acticeCode="+activeCode+"'>active now !</a></p></html>");
+			boolean bol = sendCommon(user,"JobComing.org","the email is used to activate the account of jobciming","<html><p>Please click on the following link to activate within half an hour<a href='http://ixufeng.cn/jobcoming/api/active?activeCode="+activeCode+"'>active now !</a></p></html>");
 			if(bol)return true;
 		} catch (Throwable e) {
 			
