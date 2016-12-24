@@ -1,36 +1,38 @@
-function appendMessage(data){
-	
-			
+var userList = {};
+var currentUserId = -1;
+function appendMessage(userId){
+			var last = userList[currentUserId].length-1
+			var content =  userList[currentUserId][last].chatContent
+			var time = userList[currentUserId][last].chatTime
+			//初始化聊天内容框
 			var html = '<div class="message">';
 			html += '<img src="img/2_copy.jpg" />';
 			html += '<div class="bubble">';
-			html += data.chatContent;
+			html += content;
 			html += '<div class="corner"></div>';
-			html += '<span>3s</span>';
+			html += '<span></span>';
 			html += '</div></div>';
-			$('#chat-messages').append(html);	    	
+			$('#chat-messages').append(html);
 			$("#chat-messages").animate({scrollTop: "300px"},300);
 				
 			var sel = "user_"+data.userSendId;
 			
-				var friend = '<div class="friend" id="'+sel+'">';
-				friend+='<img src="img/2_copy.jpg" />';
-				friend+='<p>';
-				friend+='<strong>Martin Joseph</strong>';
-				friend+='<span>marjoseph@gmail.com</span>';
-				friend+='</p>';
-				friend+='<div class="status away"></div>';
-				friend+=' </div>';
-				$("#friends").append(friend);	
-			
-					
+			var friend = '<div class="friend" id="'+sel+'">';    
+			friend+='<img src="img/2_copy.jpg" />';
+			friend+='<p>';
+			friend+='<strong>Martin Joseph</strong>';
+			friend+='<label class="hidden">'+userId+'</label>';
+			friend+='<span>marjoseph@gmail.com</span>';
+			friend+='</p>';
+			friend+='<div class="status away"></div>';
+			friend+=' </div>';
+			$("#friends").append(friend);			
 	    	$("#chat-messages").animate({scrollTop: "300px"},300);
 			
 	    	
 	    	
 }
-		
-		
+
 
 function getMessage(){  	
     	$.ajax({
@@ -42,31 +44,37 @@ function getMessage(){
     			
     			if(data.length>0){
     				$("#chatbox").fadeIn();
+    				console.log(data)
     				for(var i=0;i<data.length;i++){
-    					appendMessage(data[i]);  					
+    					var message = data[i]
+    					var userId =  message.userSendId
+    					//将接收到的message存入map
+    					if(userList[userId]!=null){
+    						userList[userId].push({
+    							chatContent:message.chatContent,
+    							chatTime:message.chatTime
+   							
+    						})
+    					}else{
+    						var arr = [];
+    						arr.push({
+    							chatContent:message.chatContent,
+    							chatTime:message.chatTime
+    						})
+    						userList[userId] = arr;
+    					}
+    					
+    					appendMessage(userId);  					
     				}
     			}
     		},
     		error:function(data){
-    			console.log("链接错误");
+    			console.log("网络错误");
     		}
     	});
     	
    }
 $(document).ready(function () {	
-		var cp = "-1";
-	    var preloadbg = document.createElement('img');
-	    preloadbg.src = 'img/timeline1.png';
-	    $('#searchfield').focus(function () {
-	        if ($(this).val() == 'Search contacts...') {
-	            $(this).val('');
-	        }
-	    });
-	    $('#searchfield').focusout(function () {
-	        if ($(this).val() == '') {
-	            $(this).val('Search contacts...');
-	        }
-	    });
 	    $('#sendmessage input').focus(function () {
 	        if ($(this).val() == 'Send message...') {
 	            $(this).val('');
@@ -78,7 +86,7 @@ $(document).ready(function () {
 	        }
 	    });
 	    $("#friends").on("click",".friend",function(){	    	
-	    	cp = $(this).find("label").html();	    	
+	    	currentUserId = $(this).find("label").html();	    	
             var childOffset = $(this).offset();
             var parentOffset = $(this).parent().parent().offset();
             var childTop = childOffset.top - parentOffset.top;
@@ -179,8 +187,8 @@ $(document).ready(function () {
     function sendMessage(){
     	
     	var chatContent = $("#content").val();
-
-    	var receivedUserKey = cp;
+    	var receivedUserKey = currentUserId;
+    	
     	sendHandle(chatContent);
     	$.ajax({
     		url : "/jobcoming/message/ajax_sendchat", 
